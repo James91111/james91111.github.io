@@ -204,13 +204,14 @@
       box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
     }
 
-   .nebula-card video,
-.nebula-card img {
-  width: 100%;
+.nebula-card video {
+  display: block;
+  margin: 0 auto;
+  width: 90%; /* Lebih besar dari sebelumnya */
+  max-height: 300px;
   border-radius: 0.75rem;
-  margin-bottom: 1rem;
-  aspect-ratio: 16/9;
-  object-fit: contain; /* Ganti dari cover ke contain */
+  object-fit: contain;
+  background-color: #000;
 }
 
     .nebula-card h3 {
