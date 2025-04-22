@@ -157,49 +157,125 @@
       background: transparent;
       transition: filter 0.3s ease;
     }
-    .card-box {
-  background-color: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(59, 130, 246, 0.2);
-  border-radius: 1.25rem;
-  padding: 2rem;
-  margin: 1rem;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.08);
-  transition: 0.3s ease;
-  color: white;
-  max-width: 320px;
-  flex: 1;
-}
 
-.card-box:hover {
-  box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
-  border-color: rgba(59, 130, 246, 0.5);
-}
+    /* Nebula Network Style Cards */
+    .section-label {
+      display: inline-block;
+      background: linear-gradient(90deg, #3b82f6, #1e40af);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
 
-.card-box h3 {
-  margin-top: 1rem;
-  font-size: 1.2rem;
-}
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #ffffff, #93c5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-.card-box p {
-  color: #94a3b8;
-  font-size: 0.95rem;
-}
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
 
-.card-box img,
-.card-box video {
-  width: 100%;
-  border-radius: 1rem;
-  object-fit: cover;
-}
+    .nebula-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
 
-.pricing-grid,
-.working-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-}
+    .nebula-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+      transform: rotate(30deg);
+      z-index: -1;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .nebula-card:hover {
+      border-color: rgba(59, 130, 246, 0.5);
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
+      transform: translateY(-5px);
+    }
+
+    .nebula-card:hover::before {
+      opacity: 1;
+    }
+
+    .nebula-card img,
+    .nebula-card video {
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+    }
+
+    .nebula-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .nebula-card p {
+      color: #94a3b8;
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      font-size: 0.875rem;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+      
+      .btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+      }
+      
+      .section {
+        padding: 3rem 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.75rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -245,57 +321,51 @@
       Your browser does not support the video tag.
     </video>
   </section>
-</div>
-        </div>
-        
-      </section>
-<!-- Pricing Section -->
-<section id="pricing" class="section" style="text-align: center;">
-  <div class="pricing-label">Pricing</div>
-  <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
-    Access our GPUs at affordable pricing
-  </p>  
-  <div class="pricing-grid">
-    <div class="card-box">
-      <video autoplay loop muted playsinline class="pricing-video">
-        <source src="images/setup.mov" type="video/mp4">
-        <source src="images/setup.webm" type="video/webm">
-      </video>
-      <h3>Setup your node</h3>
-      <p>Connect your GPU node to our decentralized network and start earning.</p>
-    </div>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="section">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">Access our GPUs at affordable pricing</h2>
     
-    <div class="card-box">
-      <video autoplay loop muted playsinline class="pricing-video">
-        <source src="images/Connect to our servers.mov" type="video/mp4">
-        <source src="images/Connect to our servers.webm" type="video/webm">
-      </video>
-      <h3>Connect to our Servers</h3>
-      <p>Link your node to our high-performance P2P marketplace and access limitless computing power.</p>
+    <div class="card-grid">
+      <div class="nebula-card">
+        <video autoplay loop muted playsinline>
+          <source src="images/setup.mov" type="video/mp4">
+          <source src="images/setup.webm" type="video/webm">
+        </video>
+        <h3>Setup your node</h3>
+        <p>Connect your GPU node to our decentralized network and start earning.</p>
+      </div>
+      
+      <div class="nebula-card">
+        <video autoplay loop muted playsinline>
+          <source src="images/Connect to our servers.mov" type="video/mp4">
+          <source src="images/Connect to our servers.webm" type="video/webm">
+        </video>
+        <h3>Connect to our Servers</h3>
+        <p>Link your node to our high-performance P2P marketplace and access limitless computing power.</p>
+      </div>
+
+      <div class="nebula-card">
+        <video autoplay loop muted playsinline>
+          <source src="images/payouts.mov" type="video/mp4">
+          <source src="images/Instant payouts.webm" type="video/webm">
+        </video>
+        <h3>Instant Payouts</h3>
+        <p>Receive instant rewards in ETH or NAI as your node processes AI workloads.</p>
+      </div>
     </div>
+  </section>
 
-    <div class="card-box">
-      <video autoplay loop muted playsinline class="pricing-video">
-        <source src="images/payouts.mov" type="video/mp4">
-        <source src="images/Instant payouts.webm" type="video/webm">
-      </video>
-      <h3>Instant Payouts</h3>
-      <p>Receive instant rewards in ETH or NAI as your node processes AI workloads.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Working Section -->
-<section id="working" class="section" style="text-align: center;">
-  <div class="pricing-label">Working</div>
-  <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
-    How It Works
-  </p>  
-
-  <div class="working-grid">
-    <div class="card-box">
-      <img src="images/card1.png" alt="Earn with NAI">
-      <h3>Earn with $NAI</h3>
+  <!-- Working Section -->
+  <section id="working" class="section">
+    <div class="section-label">Working</div>
+    <h2 class="section-title">How It Works</h2>
+    
+    <div class="card-grid">
+      <div class="nebula-card">
+        <img src="images/card1.png" alt="Earn with NAI">
+        <h3>Earn with $NAI</h3>
       <p>Pay for units with $ETH or $NAI, receive $NAI for your lending</p>
     </div>  
     <div class="card-box">
