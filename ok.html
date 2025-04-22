@@ -907,30 +907,47 @@ margin: 0;
                 transform: rotate(-45deg) translate(7px, -6px);
             }
             .copy-box {
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  background-color: #0d1117;
-  border: 1px solid #333;
+  margin: 4rem auto;
+  padding: 0.75rem 1.5rem;
+  background-color: #11161d;
   border-radius: 2rem;
-  padding: 0.5rem 1rem;
-  font-family: monospace;
+  width: fit-content;
   color: white;
-  font-size: 0.9rem;
-  position: relative;
+  font-family: monospace;
+  font-size: 1rem;
+  gap: 1rem;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
 }
 
 .copy-button {
   background: none;
   border: none;
   cursor: pointer;
-  margin-left: 0.5rem;
   padding: 0;
 }
 
 .copy-icon {
-  width: 20px;
-  height: 20px;
-  filter: brightness(0) invert(1);
+  display: inline-block;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 3px;
+}
+
+.copy-icon::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  background-color: white;
+  border-radius: 3px;
+  opacity: 0.6;
 }
   </style>
 </head>
@@ -955,10 +972,15 @@ margin: 0;
             <a href="#document">Document</a>
         </nav>
     </header>
+    </div>
+    </div>
+    </div>
 <div class="copy-box">
   <span id="wallet-address">0x701C7542cD5D69494ef9fc8829a7F6093...</span>
   <button class="copy-button" onclick="copyToClipboard()">
-    <img src="copy-icon.png" alt="Copy" class="copy-icon">
+    <span class="copy-icon"></span>
+  </button>
+</div>
   </button>
 </div>
   <section class="section">
