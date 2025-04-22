@@ -217,18 +217,11 @@ header {
   z-index: 10;
 }
 
-/* Background kotak-kotak grid */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: linear-gradient(to right, rgba(255,255,255,0.07) 1px, transparent 1px),
-                    linear-gradient(to bottom, rgba(255,255,255,0.07) 1px, transparent 1px);
+.grid-background {
+  background-image: 
+    linear-gradient(to bottom, transparent 96%, rgba(255, 255, 255, 0.07) 97%), 
+    linear-gradient(to right, transparent 96%, rgba(255, 255, 255, 0.07) 97%);
   background-size: 65px 65px;
-  z-index: -1;
 }
 .glow-video {
   width: 100%;
@@ -259,30 +252,33 @@ body::before {
   <a href="#faq">FAQ</a>
   <a href="#document">Document</a>
 </div>
-    <img src="assets/nebulawidelogo.png" alt="Nebula Logo">
-  </header>  <section class="section">
+<header>
+  <img src="assets/nebulawidelogo.png" alt="Nebula Logo">
+</header>
+
+<div class="grid-background">
+  <section class="section">
     <h1 class="hero-title">A decentralised supercomputer designed to meet the demand for next gen AI</h1>
-    <p style="text-align:center; margin-top:1rem;">Access GPUs from our decentralised servers or from our vast network of community members.</p>
+    <p style="text-align:center; margin-top:1rem;">
+      Access GPUs from our decentralised servers or from our vast network of community members.
+    </p>
     <div class="partner-icons">
-      <a href="https://x.com" target="_blank"><img src="images/twitter.svg" alt="X"></a>
-      <a href="https://t.me" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
-      <a href="https://contoh.com" target="_blank"><img src="images/dextools.svg" alt="Icon 3"></a>
-      <a href="https://contoh.com" target="_blank"><img src="images/ethscan.svg" alt="Icon 4"></a>
-      <a href="https://contoh.com" target="_blank"><img src="images/gitbook.svg" alt="Icon 5"></a>
+      <!-- icons -->
     </div>
     <div class="btn-group">
       <a href="https://app.nebula-ai.com/buy" class="btn btn-primary">Buy $NAI</a>
       <a href="https://app.nebula-ai.com/rent" class="btn btn-outline">Rent GPU</a>
     </div>
-</div>
 
-<!-- Tambahkan video di bawah sini -->
-<video class="glow-video" autoplay muted loop playsinline>
-  <source src="images/main.webm" type="video/webm">
-  <source src="images/main.mov" type="video/quicktime">
-  Your browser does not support the video tag.
-</video>
-</video>
+    <div class="video-section">
+      <video class="glow-video" autoplay muted loop playsinline>
+        <source src="images/main.webm" type="video/webm">
+        <source src="images/main.mov" type="video/quicktime">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+  </section>
+</div>
         </div>
         
       </section>
