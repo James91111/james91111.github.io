@@ -906,6 +906,32 @@ margin: 0;
             .nav-toggle.open span:nth-child(3) {
                 transform: rotate(-45deg) translate(7px, -6px);
             }
+            .copy-box {
+  display: inline-flex;
+  align-items: center;
+  background-color: #0d1117;
+  border: 1px solid #333;
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+  font-family: monospace;
+  color: white;
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.copy-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  padding: 0;
+}
+
+.copy-icon {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) invert(1);
+}
   </style>
 </head>
 <body>
@@ -929,7 +955,12 @@ margin: 0;
             <a href="#document">Document</a>
         </nav>
     </header>
-
+<div class="copy-box">
+  <span id="wallet-address">0x701C7542cD5D69494ef9fc8829a7F6093...</span>
+  <button class="copy-button" onclick="copyToClipboard()">
+    <img src="copy-icon.png" alt="Copy" class="copy-icon">
+  </button>
+</div>
   <section class="section">
     <h1 class="hero-title">A decentralised supercomputer designed to meet the demand for next gen AI</h1>
     <p>
@@ -1208,7 +1239,7 @@ margin: 0;
 
     <!-- Infrastructure Partners -->
     <section class="section">
-        <h2>Infrastructure Partners</h2>
+        <h2>Audit Partners</h2>
      
 <section class="audit-section">
   <div class="audit-links">
@@ -1244,7 +1275,7 @@ margin: 0;
         <p>&copy; 2025 Nebula AI. All rights reserved.</p>
     </footer>
 
-     <script>
+  <script>
     // Navigation Menu Toggle
     document.addEventListener('DOMContentLoaded', function() {
         const navToggle = document.getElementById('navToggle');
@@ -1311,6 +1342,14 @@ margin: 0;
             });
         });
     });
-    </script>
+
+    // Fungsi Copy (harus di luar DOMContentLoaded supaya bisa dipanggil dari onclick)
+    function copyToClipboard() {
+        const text = document.getElementById("wallet-address").innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            alert("Address copied!");
+        });
+    }
+</script>
 </body>
 </html>
