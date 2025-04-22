@@ -311,10 +311,10 @@
 }
 
 .card-grid {
-  display: flex;
-  flex-direction: column; /* Tumpuk ke bawah */
-  align-items: center;
-  gap: 2rem; /* Jarak antar kartu */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-items: center;
 }
 
 .nebula-card {
@@ -387,8 +387,6 @@
     <div class="section-label">Pricing</div>
   </div>
   <h2 class="section-title">Access our GPUs at affordable pricing</h2>
-  <div class="card-grid">
-    <!-- cards di sini -->
   <div class="card-grid">
     <div class="nebula-card">
       <video autoplay loop muted playsinline>
