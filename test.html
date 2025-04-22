@@ -1146,42 +1146,32 @@ body {
   z-index: 1;
 }
 
-/* Grid tetap di atas background dan tidak menutupi konten */
+.grid-section {
+  position: relative;
+  padding-top: 120px; /* atur jarak dari header/menu bar */
+}
+
 .grid-overlay {
-  position: fixed;
-  top: 70px; /* posisi tepat di bawah header */
+  position: absolute;
+  top: 0;
   left: 0;
   width: 100%;
   height: 800px;
   background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
-  background-size: 55px 55px;
+    linear-gradient(to right, rgba(255,255,255,0.08) 1.2px, transparent 1.2px),
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1.2px, transparent 1.2px);
+  background-size: 60px 60px;
   z-index: 0;
   pointer-events: none;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
-/* Copy box tetap muncul di atas grid */
 .copy-box {
-  margin-top: 150px; /* atur jarak dari header/grid */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.6rem 1.2rem;
-  border: 1.5px solid white;
-  border-radius: 2rem;
-  width: fit-content;
-  margin-inline: auto;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
-  font-family: monospace;
-  font-size: 0.9rem;
-  gap: 1rem;
-  z-index: 2;
   position: relative;
-  backdrop-filter: blur(4px);
+  z-index: 1;
+  margin-top: 3rem;
+  /* biar ga nempel grid */
 }
   </style>
 </head>
@@ -1207,17 +1197,16 @@ body {
     </nav>
   </header>
 
-<!-- Grid background -->
-<div class="grid-overlay"></div>
-
-<!-- Konten utama -->
-<div class="main-content">
-  <div class="copy-box">
-    <span id="wallet-address">0x701C7549a7F6093...</span>
-    <button class="copy-button" onclick="copyToClipboard()">
-      <span class="copy-icon"></span>
-    </button>
-  </div>
+<section class="grid-section">
+  <div class="grid-overlay"></div>
+  
+  <div class="main-content">
+    <div class="copy-box">
+      <span id="wallet-address">0x701C7549a7F6093...</span>
+      <button class="copy-button" onclick="copyToClipboard()">
+        <span class="copy-icon"></span>
+      </button>
+    </div>
 </div>
   <section class="section">
     <h1 class="hero-title">A decentralised supercomputer designed to meet the demand for next gen AI</h1>
