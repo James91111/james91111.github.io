@@ -1083,8 +1083,8 @@ margin: 0;
 .nav-menu {
   position: absolute;
   top: 100%;
-  left: 0;
-  right: 0;
+  left: 0.75rem;
+  right: 0.75rem;
   background: rgba(0, 0, 0, 0.75); /* Hitam transparan */
   border: 1px solid #2563eb; /* Garis biru */
   box-shadow: 0 0 20px rgba(37, 99, 235, 0.5); /* Glow biru */
@@ -1094,14 +1094,11 @@ margin: 0;
   flex-direction: column;
   align-items: center;
   border-radius: 0.5rem;
-  max-height: 300px; /* Biar ga kepanjangan */
-  overflow-y: auto;  /* Scroll kalau isinya lebih dari tinggi maksimal */
+  max-height: 300px;
+  overflow-y: auto;
   z-index: 999;
   transition: all 0.3s ease;
-}
-
-.nav-menu.show {
-  display: flex;
+  text-align: center; /* Biar teks di tengah */
 }
   </style>
 </head>
