@@ -1,4 +1,3 @@
-/* ORIGINAL WRITING AND DEPLOYING BY JYEEE.ETH 22 APRIL 2025*/
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -143,7 +142,7 @@
 }
 
 .btn-outline {
-  background-color: #0f0f0f; /* hitam gelap sesuai background */
+  background-color: #0f0f0f; /* hitam gelap sesuai background ORIGINAL WRITING BY JYEEE.ETH 22 APRIL 2025*/
   border: 1px solid #ffffff33; /* putih transparan tipis */
   color: white;
 }
@@ -1081,6 +1080,31 @@ margin: 0;
   font-size: 12px;
   color: #777;
 }
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  right: 1rem;
+  background-color: rgba(0, 0, 0, 0.7); /* hitam transparan */
+  padding: 1rem 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #0080ff;
+  box-shadow: 0 0 15px rgba(0, 128, 255, 0.5); /* biru tua bercahaya */
+  backdrop-filter: blur(6px);
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 100;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-menu.show {
+  display: flex;
+}
   </style>
 </head>
 <body>
@@ -1428,81 +1452,82 @@ margin: 0;
   </div>
 </footer>
 
-  <script>
-    // Navigation Menu Toggle
-    document.addEventListener('DOMContentLoaded', function() {
-        const navToggle = document.getElementById('navToggle');
-        const navMenu = document.getElementById('navMenu');
-        
-        if (navToggle && navMenu) {
-            navToggle.addEventListener('click', function() {
-                navMenu.classList.toggle('open');
-                navToggle.classList.toggle('open');
-            });
-            
-            // Close menu when clicking on a link
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.addEventListener('click', () => {
-                    navMenu.classList.remove('open');
-                    navToggle.classList.remove('open');
-                });
-            });
-        }
+ <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const navToggle = document.getElementById('navToggle');
+    const navMenu = document.getElementById('navMenu');
 
-        // Dot navigation untuk roadmap
-        const slider = document.getElementById('roadmapSlider');
-        const dotsContainer = document.getElementById('dotsContainer');
-        const cards = document.querySelectorAll('.phase-card');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('show'); // pakai class 'show' sesuai CSS baru
+        navToggle.classList.toggle('open');
+      });
 
-        if (slider && dotsContainer && cards.length > 0) {
-            cards.forEach((_, index) => {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                if (index === 0) dot.classList.add('active');
-                dot.addEventListener('click', () => {
-                    slider.scrollTo({
-                        left: cards[index].offsetLeft,
-                        behavior: 'smooth'
-                    });
-                });
-                dotsContainer.appendChild(dot);
-            });
-
-            slider.addEventListener('scroll', () => {
-                const scrollPosition = slider.scrollLeft + slider.offsetWidth / 2;
-                document.querySelectorAll('.dot').forEach((dot, index) => {
-                    const card = cards[index];
-                    if (card && card.offsetLeft <= scrollPosition && 
-                        card.offsetLeft + card.offsetWidth > scrollPosition) {
-                        document.querySelector('.dot.active')?.classList.remove('active');
-                        dot.classList.add('active');
-                    }
-                });
-            });
-        }
-
-        // FAQ toggle logic
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const item = question.parentNode;
-                item.classList.toggle('active');
-
-                document.querySelectorAll('.faq-item').forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-            });
+      // Tutup menu saat klik link
+      document.querySelectorAll('.nav-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('show');
+          navToggle.classList.remove('open');
         });
-    });
-
-    // Fungsi Copy (harus di luar DOMContentLoaded supaya bisa dipanggil dari onclick)
-    function copyToClipboard() {
-        const text = document.getElementById("wallet-address").innerText;
-        navigator.clipboard.writeText(text).then(() => {
-            alert("Address copied!");
-        });
+      });
     }
+
+    // Dot navigation untuk roadmap
+    const slider = document.getElementById('roadmapSlider');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const cards = document.querySelectorAll('.phase-card');
+
+    if (slider && dotsContainer && cards.length > 0) {
+      cards.forEach((_, index) => {
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          slider.scrollTo({
+            left: cards[index].offsetLeft,
+            behavior: 'smooth'
+          });
+        });
+        dotsContainer.appendChild(dot);
+      });
+
+      slider.addEventListener('scroll', () => {
+        const scrollPosition = slider.scrollLeft + slider.offsetWidth / 2;
+        document.querySelectorAll('.dot').forEach((dot, index) => {
+          const card = cards[index];
+          if (
+            card.offsetLeft <= scrollPosition &&
+            card.offsetLeft + card.offsetWidth > scrollPosition
+          ) {
+            document.querySelector('.dot.active')?.classList.remove('active');
+            dot.classList.add('active');
+          }
+        });
+      });
+    }
+
+    // FAQ toggle logic
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentNode;
+        item.classList.toggle('active');
+
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+          }
+        });
+      });
+    });
+  });
+
+  // Fungsi Copy
+  function copyToClipboard() {
+    const text = document.getElementById("wallet-address").innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      alert("Address copied!");
+    });
+  }
 </script>
 </body>
 </html>
