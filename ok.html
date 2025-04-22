@@ -503,6 +503,96 @@
     -webkit-overflow-scrolling: touch;
     justify-content: center;
 }
+margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: white;
+        }
+        
+        .faq-container {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .faq-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .faq-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-subtitle {
+            font-size: 1.5rem;
+            color: #cbd5e1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .faq-date {
+            color: #64748b;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .faq-item {
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            border-color: #3b82f6;
+        }
+        
+        .faq-question {
+            padding: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-question:after {
+            content: "+";
+            font-size: 1.5rem;
+            color: #3b82f6;
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-question:after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: #cbd5e1;
+            line-height: 1.6;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 0 1.5rem 1.5rem;
+            max-height: 500px;
+        }
 }
     }
   </style>
@@ -741,6 +831,68 @@
         <div class="navigation-dots" id="dotsContainer">
             <!-- Dots will be added by JavaScript -->
         </div>
+        <section class="faq-container">
+        <div class="faq-header">
+            <div class="faq-date">APRIL 2025</div>
+            <h1 class="faq-title">FAQ</h1>
+            <p class="faq-subtitle">Get answers to common questions about Nebula AI</p>
+        </div>
+        
+        <div class="faq-content">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item">
+                <div class="faq-question">What is Nebula AI?</div>
+                <div class="faq-answer">
+                    Nebula AI is a decentralized GPU marketplace where anyone can rent compute power, stake $NAI for rewards, and access AI tools—all without relying on centralized cloud providers.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 2 -->
+            <div class="faq-item">
+                <div class="faq-question">How does renting a GPU work?</div>
+                <div class="faq-answer">
+                    Users can browse available GPU resources on our marketplace, select the specifications they need, and rent them for their AI workloads. Payment is made in $NAI tokens, and the rented GPUs can be accessed immediately through our platform.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 3 -->
+            <div class="faq-item">
+                <div class="faq-question">What is staking, and why should I care?</div>
+                <div class="faq-answer">
+                    Staking allows you to lock up your $NAI tokens to help secure the network and earn rewards. By staking, you contribute to the ecosystem's stability while earning passive income from transaction fees and network rewards.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 4 -->
+            <div class="faq-item">
+                <div class="faq-question">How is Nebula AI different from AWS, Google Cloud, or Vast AI?</div>
+                <div class="faq-answer">
+                    Unlike centralized cloud providers, Nebula AI is fully decentralized, meaning no single entity controls the network. This results in lower costs, better privacy, and more equitable rewards for both GPU providers and users. Our platform also integrates native AI tools and a token economy that rewards participation.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 5 -->
+            <div class="faq-item">
+                <div class="faq-question">What is the Super-App Marketplace?</div>
+                <div class="faq-answer">
+                    The Super-App Marketplace is our integrated platform where users can access various AI tools and services that run on our decentralized GPU network. This includes pre-trained models, development tools, and specialized AI applications - all accessible through a single interface.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 6 -->
+            <div class="faq-item">
+                <div class="faq-question">Is Nebula AI secure?</div>
+                <div class="faq-answer">
+                    Yes, Nebula AI employs multiple layers of security including blockchain-based verification, encrypted communications, and decentralized storage. All transactions are transparently recorded on-chain, and our smart contracts have undergone extensive security audits.
+                </div>
+            </div>
+            
+            <!-- FAQ Item 7 -->
+            <div class="faq-item">
+                <div class="faq-question">What is $NAI used for?</div>
+                <div class="faq-answer">
+                    The $NAI token serves multiple purposes in our ecosystem: paying for GPU rentals, staking for rewards, governance voting, accessing premium features in the Super-App Marketplace, and incentivizing network participants. It's the native currency that powers the entire Nebula AI platform.
+                </div>
   </div>
 </section><!-- Infrastructure Partners --><section class="section">
   <h2>Infrastructure Partners</h2>
