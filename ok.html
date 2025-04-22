@@ -1280,10 +1280,6 @@ margin: 0;
             link.addEventListener('click', () => {
                 navMenu.classList.remove('open');
                 navToggle.classList.remove('open');
-    // Tutup nav saat link diklik
-    document.querySelectorAll('.nav-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.body.classList.remove('nav-open');
       });
     });
 
@@ -1332,51 +1328,4 @@ margin: 0;
     </script>
 </body>
 </html>
-      });
-    });
-
-    // Dot navigation untuk roadmap
-    const slider = document.getElementById('roadmapSlider');
-    const dotsContainer = document.getElementById('dotsContainer');
-    const cards = document.querySelectorAll('.phase-card');
-
-    cards.forEach((_, index) => {
-      const dot = document.createElement('div');
-      dot.classList.add('dot');
-      if (index === 0) dot.classList.add('active');
-      dot.addEventListener('click', () => {
-        slider.scrollTo({
-          left: cards[index].offsetLeft,
-          behavior: 'smooth'
-        });
-      });
-      dotsContainer.appendChild(dot);
-    });
-
-    slider.addEventListener('scroll', () => {
-      const scrollPosition = slider.scrollLeft + slider.offsetWidth / 2;
-      document.querySelectorAll('.dot').forEach((dot, index) => {
-        const card = cards[index];
-        if (card.offsetLeft <= scrollPosition && card.offsetLeft + card.offsetWidth > scrollPosition) {
-          document.querySelector('.dot.active').classList.remove('active');
-          dot.classList.add('active');
-        }
-      });
-    });
-
-    // FAQ klik logic — ini berdiri sendiri
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const item = question.parentNode;
-        item.classList.toggle('active');
-
-        document.querySelectorAll('.faq-item').forEach(otherItem => {
-          if (otherItem !== item && otherItem.classList.contains('active')) {
-            otherItem.classList.remove('active');
-          }
-        });
-      });
-    });
-    </script>
-</body>
-</html>
+ 
