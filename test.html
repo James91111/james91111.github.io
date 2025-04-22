@@ -292,6 +292,49 @@
   font-size: 1rem;
   text-align: center;
 }
+.section-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-label {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.2);
+  border: 1px solid #3b82f6;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+}
+
+.card-grid {
+  display: flex;
+  flex-direction: column; /* Tumpuk ke bawah */
+  align-items: center;
+  gap: 2rem; /* Jarak antar kartu */
+}
+
+.nebula-card {
+  background: #000; /* full hitam */
+  border: 1px solid #444;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+.nebula-card video,
+.nebula-card img {
+  width: 100%;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
   </style>
 </head>
 <body>
@@ -340,11 +383,12 @@
 
 <!-- Pricing Section -->
 <section id="pricing" class="section">
-  <div style="text-align: center;">
+  <div class="section-header">
     <div class="section-label">Pricing</div>
   </div>
   <h2 class="section-title">Access our GPUs at affordable pricing</h2>
-  
+  <div class="card-grid">
+    <!-- cards di sini -->
   <div class="card-grid">
     <div class="nebula-card">
       <video autoplay loop muted playsinline>
