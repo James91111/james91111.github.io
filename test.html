@@ -225,10 +225,33 @@ header {
   display: block;
   border-radius: 1rem;
   opacity: 0.9;
-  filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.6)); /* biru glow */
+  filter: drop-shadow(0 0 60px rgba(59, 130, 246, 0.6)); /* biru glow */
   transition: filter 0.3s ease;
   background: transparent;
   z-index: 1;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #000;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+  color: #3b82f6;
 }
   </style>
 </head>
@@ -239,16 +262,16 @@ header {
   <span></span>
   <span></span>
 </div>
-<div class="nav-menu">
-  <a href="#marketplace">Marketplace</a>
-  <a href="#pricing">Pricing</a>
-  <a href="#working">How it Works</a>
-  <a href="#roadmap">Roadmap</a>
-  <a href="#faq">FAQ</a>
-  <a href="#document">Document</a>
-</div>
-<header>
+<header class="header">
   <img src="assets/nebulawidelogo.png" alt="Nebula Logo">
+  <div class="nav-menu">
+    <a href="#marketplace">Marketplace</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#working">How it Works</a>
+    <a href="#roadmap">Roadmap</a>
+    <a href="#faq">FAQ</a>
+    <a href="#document">Document</a>
+  </div>
 </header>
 
 <div class="grid-background">
@@ -272,12 +295,11 @@ header {
     <a href="https://app.nebula-ai.com/rent" class="btn btn-outline">Rent GPU</a>
   </div>
 
-  <div style="margin-top: 3rem; display: flex; justify-content: center;">
-    <video autoplay muted loop playsinline style="width: 100%; max-width: 800px; border-radius: 1rem; box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);">
-      <source src="images/main.webm" type="video/webm">
-      <source src="images/main.mov" type="video/quicktime">
-      Your browser does not support the video tag.
-    </video>
+<video class="glow-video" autoplay loop muted playsinline>
+  <source src="images/main.webm" type="video/webm">
+  <source src="images/main.mov" type="video/quicktime">
+  Your browser does not support the video tag.
+</video>
   </div>
   </section>
 </div>
