@@ -816,24 +816,138 @@ margin: 0;
 .social-icons img:hover {
   transform: scale(1.1);
 }
+margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 100;
+        }
+        
+        .logo {
+            width: 180px;
+        }
+        
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 24px;
+            cursor: pointer;
+            z-index: 101;
+        }
+        
+        .nav-toggle span {
+            height: 3px;
+            background-color: white;
+            border-radius: 3px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+        
+        .nav-menu a:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #3b82f6;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-menu a:hover:after {
+            width: 100%;
+        }
+        
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: flex;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                max-width: 400px;
+                height: 100vh;
+                background: #0f172a;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+                padding: 2rem;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+            
+            .nav-menu.open {
+                right: 0;
+            }
+            
+            .nav-toggle.open span:nth-child(1) {
+                transform: rotate(45deg) translate(5px, 5px);
+            }
+            
+            .nav-toggle.open span:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .nav-toggle.open span:nth-child(3) {
+                transform: rotate(-45deg) translate(7px, -6px);
+            }
   </style>
 </head>
 <body>
-  <header class="header">
-    <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="logo">
-    <div class="nav-toggle" onclick="document.body.classList.toggle('nav-open')">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <nav class="nav-menu">
-      <a href="#marketplace">Marketplace</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#working">How it Works</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#faq">FAQ</a>
-      <a href="#document">Document</a>
-    </nav>
+<body>
+    <header class="header">
+        <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="logo">
+        
+        <div class="nav-toggle" id="navToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        
+        <nav class="nav-menu" id="navMenu">
+            <a href="#marketplace">Marketplace</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#working">How it Works</a>
+            <a href="#roadmap">Roadmap</a>
+            <a href="#faq">FAQ</a>
+            <a href="#document">Document</a>
+        </nav>
   </header>
 
   <section class="section">
@@ -1151,10 +1265,73 @@ margin: 0;
     </footer>
 
     <script>
+    	
+    <script>
+    	const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('open');
+            navToggle.classList.toggle('open');
+        });
+        
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navToggle.classList.remove('open');
     // Tutup nav saat link diklik
     document.querySelectorAll('.nav-menu a').forEach(link => {
       link.addEventListener('click', () => {
         document.body.classList.remove('nav-open');
+      });
+    });
+
+    // Dot navigation untuk roadmap
+    const slider = document.getElementById('roadmapSlider');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const cards = document.querySelectorAll('.phase-card');
+
+    cards.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        slider.scrollTo({
+          left: cards[index].offsetLeft,
+          behavior: 'smooth'
+        });
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    slider.addEventListener('scroll', () => {
+      const scrollPosition = slider.scrollLeft + slider.offsetWidth / 2;
+      document.querySelectorAll('.dot').forEach((dot, index) => {
+        const card = cards[index];
+        if (card.offsetLeft <= scrollPosition && card.offsetLeft + card.offsetWidth > scrollPosition) {
+          document.querySelector('.dot.active').classList.remove('active');
+          dot.classList.add('active');
+        }
+      });
+    });
+
+    // FAQ klik logic — ini berdiri sendiri
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentNode;
+        item.classList.toggle('active');
+
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+          }
+        });
+      });
+    });
+    </script>
+</body>
+</html>
       });
     });
 
