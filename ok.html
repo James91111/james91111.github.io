@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nebula AI - Static Rebuild</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background-color: #000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .logo {
+      width: 180px;
+    }
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      height: 3px;
+      background-color: white;
+      border-radius: 3px;
+      display: block;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: 70px;
+      right: 2rem;
+      background: #111;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      flex-direction: column;
+      gap: 1rem;
+      display: none;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    body.nav-open .nav-menu {
+      display: flex;
+    }
+
+    .section {
+      padding: 4rem 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .hero-title {
+      font-size: 20px;
+      font-weight: 600;
+      text-align: center;
+      line-height: 1.4;
+      color: #3b82f6;
+    }
+
+    p {
+      font-size: 1rem;
+      color: #cbd5e1;
+      font-weight: 400;
+      text-align: center;
+      margin-top: 1rem;
+    }
+
+    .partner-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin: 20px 0;
+    }
+
+    .partner-icons img {
+      width: 32px;
+      height: 32px;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .partner-icons img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .btn-group {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .btn {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.95rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid white;
+      color: white;
+    }
+
+    .glow-video {
+      width: 90%;
+      max-width: 640px;
+      margin: 2rem auto;
+      display: block;
+      border-radius: 1rem;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.5));
+    }
+
+    .section-label,
+    .glow-label {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      border-radius: 999px;
+      background: rgba(59, 130, 246, 0.2);
+      border: 1px solid #3b82f6;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      text-align: center;
+      background: linear-gradient(to right, #ffffff, #93c5fd);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+  .nebula-card {
+  background: #000;
+  border: 1px solid #444;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  width: 125%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 0 10px rgba(255,255,255,0.05);
+  min-height: 600px; /* Tambahan tinggi */
+}
+
+    .nebula-card:hover {
+      box-shadow: 0 0 25px rgba(59, 130, 246, 0.8);
+    }
+
+.nebula-card video {
+  display: block;
+  margin: 0 auto;
+  width: 100%; /* Lebih besar dari sebelumnya */
+  max-height: 500px;
+  border-radius: 0.75rem;
+  object-fit: contain;
+  background-color: #000;
+}
+
+    .nebula-card h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .nebula-card p {
+      color: #94a3b8;
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 4rem 1.5rem;
+      font-size: 0.875rem;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title {
+        font-size: 1.5rem;
+      }
+
+      .btn {
+        padding: 1rem 1.5rem;
+        font-size: 1.05rem;
+      }
+
+      .section {
+        padding: 3rem 1.5rem;
+      }
+
+      .section-title {
+        font-size: 1.75rem;
+      }
+      .section-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.nebula-card {
+  background-color: #000;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  min-height: 600px; /* atau lebih tinggi kalau butuh */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.nebula-card img {
+  width: 100%;
+  height: 'auto'; /* Ubah sesuai gambar, atau pakai 'auto' jika ingin fleksibel */
+  object-fit: contain; /* Supaya nggak kepotong */
+  margin-bottom: 1rem;
+}
+
+.nebula-card h3 {
+  margin-top: auto; /* Supaya teks tetap di bawah */
+  margin-bottom: 0.5rem;
+}
+
+.nebula-card p {
+  margin: 0;
+}
+/* Partners Section Styles */
+.partners-section {
+    padding: 4rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-label {
+    display: inline-block;
+    background: linear-gradient(90deg, #3b82f6, #1e40af);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.section-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    background: linear-gradient(to right, #ffffff, #93c5fd);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.partners-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    height: 80px;
+    margin-top: 2rem;
+}
+
+.partners-marquee {
+    display: flex;
+    position: absolute;
+    animation: marquee 30s linear infinite;
+    height: 100%;
+    align-items: center;
+}
+
+.partner-logo {
+    margin: 0 4rem;
+    height: 40px;
+    filter: brightness(0) invert(1);
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.partner-logo:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="logo">
+    <div class="nav-toggle" onclick="document.body.classList.toggle('nav-open')">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <nav class="nav-menu">
+      <a href="#marketplace">Marketplace</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#working">How it Works</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+      <a href="#document">Document</a>
+    </nav>
+  </header>
+
+  <section class="section">
+    <h1 class="hero-title">A decentralised supercomputer designed to meet the demand for next gen AI</h1>
+    <p>
+      Access GPUs from our decentralised servers or from our vast network of community members.
+    </p>
+
+    <div class="partner-icons">
+      <a href="https://x.com" target="_blank"><img src="images/twitter.svg" alt="X"></a>
+      <a href="https://t.me" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
+      <a href="https://contoh.com" target="_blank"><img src="images/dextools.svg" alt="Dextools"></a>
+      <a href="https://contoh.com" target="_blank"><img src="images/ethscan.svg" alt="Etherscan"></a>
+      <a href="https://contoh.com" target="_blank"><img src="images/gitbook.svg" alt="Gitbook"></a>
+    </div>
+
+    <div class="btn-group">
+      <a href="https://app.nebula-ai.com/buy" class="btn btn-primary">Buy $NAI</a>
+      <a href="https://app.nebula-ai.com/rent" class="btn btn-outline">Rent GPU</a>
+    </div>
+
+    <video class="glow-video" autoplay loop muted playsinline>
+      <source src="images/main.webm" type="video/webm">
+      <source src="images/main.mov" type="video/quicktime">
+      Your browser does not support the video tag.
+    </video>
+  </section>
+<!-- Infrastructure Partners -->
+<section class="partners-section">
+    <div class="section-label">Partners</div>
+    <h2 class="section-title">Infrastructure Partners</h2>
+    
+    <div class="partners-container">
+        <div class="partners-marquee">
+            <!-- Logo pertama -->
+            <img src="images/logo2.png" alt="Intel" class="partner-logo">
+            <!-- Logo kedua -->
+            <img src="images/logo1.png" alt="ZOTAC" class="partner-logo">
+            <!-- Logo ketiga -->
+            <img src="images/logo3.png" alt="RYZEN" class="partner-logo">
+            <!-- Logo keempat -->
+            <img src="images/logo4.png" alt="zksync" class="partner-logo">
+            <!-- Logo kelima -->
+            <img src="images/logo5.png" alt="nvidia" class="partner-logo">
+            
+            <!-- Duplikat untuk animasi looping -->
+            <img src="images/logo2.png" alt="Intel" class="partner-logo">
+            <img src="images/logo1.png" alt="ZOTAC" class="partner-logo">
+            <img src="images/logo3.png" alt="RYZEN" class="partner-logo">
+            <img src="images/logo4.png" alt="zksync" class="partner-logo">
+            <img src="images/logo5.png" alt="nvidia" class="partner-logo">
+        </div>
+    </div>
+</section>
+<!-- Pricing Section -->
+<section id="pricing" class="section">
+  <div class="section-header">
+<div class="glow-label">Pricing</div>
+  </div>
+  <h2 class="section-title">Access our GPUs at affordable pricing</h2>
+  <div class="card-grid">
+    <div class="nebula-card">
+      <video autoplay loop muted playsinline>
+        <source src="images/setup.mov" type="video/mp4">
+        <source src="images/setup.webm" type="video/webm">
+      </video>
+      <h3>Setup your node</h3>
+      <p>Connect your GPU node to our decentralized network and start earning.</p>
+    </div>
+    
+    <div class="nebula-card">
+      <video autoplay loop muted playsinline>
+        <source src="images/Connect to our servers.mov" type="video/mp4">
+        <source src="images/Connect to our servers.webm" type="video/webm">
+      </video>
+      <h3>Connect to our Servers</h3>
+      <p>Link your node to our high-performance P2P marketplace and access limitless computing power.</p>
+    </div>
+
+    <div class="nebula-card">
+      <video autoplay loop muted playsinline>
+        <source src="images/payouts.mov" type="video/mp4">
+        <source src="images/Instant payouts.webm" type="video/webm">
+      </video>
+      <h3>Instant Payouts</h3>
+      <p>Receive instant rewards in ETH or NAI as your node processes AI workloads.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Working Section -->
+<section id="working" class="section">
+  <div style="text-align: center;">
+ <div class="glow-label">Working</div>
+  </div>
+  <h2 class="section-title">How It Works</h2>
+  
+  <div class="card-grid">
+    <div class="nebula-card">
+      <img src="images/card1.png" alt="Earn with NAI">
+      <h3>Earn with $NAI</h3>
+      <p>Pay for units with $ETH or $NAI, receive $NAI for your lending</p>
+    </div>  
+    <div class="nebula-card">
+      <img src="images/card2.png" alt="Rent and Lend">
+      <h3>Rent and lend</h3>
+      <p>Join our Nebula marketplace to earn from your lent GPU rentals, stake your $NAI to earn from fees and pooled generate revenue.</p>
+    </div>  
+    <div class="nebula-card">
+      <img src="images/card3.png" alt="Processing and verification">
+      <h3>Processing and verification</h3>
+      <p>Clients submit their computational tasks to Nebula, where they are instantly distributed across our secure network of high-performance AI nodes.</p>
+    </div>  
+    <div class="nebula-card">
+      <img src="images/card4.png" alt="Encrypted delivery">
+      <h3>Encrypted delivery</h3>
+      <p>Verified results are encrypted and returned to the clients promptly.</p>
+    </div>  
+    <div class="nebula-card">
+      <img src="images/card5.png" alt="Task submission">
+      <h3>Task submission and distribution</h3>
+      <p>The tasks are processed in parallel, harnessing the power of the L1 & L2 networks for secure, efficient, and verifiable computation.</p>
+    </div>
+  </div>
+  </div>
+  </div>
+</section><!-- Infrastructure Partners --><section class="section">
+  <h2>Infrastructure Partners</h2>
+  <p style="text-align:center;">Partner logos and more detail coming soon...</p>
+</section><!-- Footer --><footer>
+  <p>&copy; 2025 Nebula AI. All rights reserved.</p>
+</footer><script>
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+    });
+  });
+</script></body>
+</html>
