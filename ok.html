@@ -592,8 +592,7 @@ margin: 0;
         .faq-item.active .faq-answer {
             padding: 0 1.5rem 1.5rem;
             max-height: 500px;
-        }
-}
+       
     }
   </style>
 </head>
@@ -887,71 +886,71 @@ margin: 0;
                 </div>
             </div>
             
-            <!-- FAQ Item 7 -->
-            <div class="faq-item">
-                <div class="faq-question">What is $NAI used for?</div>
-                <div class="faq-answer">
-                    The $NAI token serves multiple purposes in our ecosystem: paying for GPU rentals, staking for rewards, governance voting, accessing premium features in the Super-App Marketplace, and incentivizing network participants. It's the native currency that powers the entire Nebula AI platform.
-                </div>
-  </div>
-</section><!-- Infrastructure Partners --><section class="section">
-  <h2>Infrastructure Partners</h2>
-  <p style="text-align:center;">Partner logos and more detail coming soon...</p>
-</section><!-- Footer --><footer>
-  <p>&copy; 2025 Nebula AI. All rights reserved.</p>
-</footer><script>
-// Tutup nav saat link diklik
-document.querySelectorAll('.nav-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    document.body.classList.remove('nav-open');
-  });
-});
+        </div> <!-- FAQ Item 7 -->
+        </div> <!-- faq-content -->
+    </section>
 
-// Dot navigation untuk roadmap
-const slider = document.getElementById('roadmapSlider');
-const dotsContainer = document.getElementById('dotsContainer');
-const cards = document.querySelectorAll('.phase-card');
+    <!-- Infrastructure Partners -->
+    <section class="section">
+        <h2>Infrastructure Partners</h2>
+        <p style="text-align:center;">Partner logos and more detail coming soon...</p>
+    </section>
 
-cards.forEach((_, index) => {
-  const dot = document.createElement('div');
-  dot.classList.add('dot');
-  if (index === 0) dot.classList.add('active');
-  dot.addEventListener('click', () => {
-    slider.scrollTo({
-      left: cards[index].offsetLeft,
-      behavior: 'smooth'
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nebula AI. All rights reserved.</p>
+    </footer>
+
+    <script>
+    // Tutup nav saat link diklik
+    document.querySelectorAll('.nav-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.body.classList.remove('nav-open');
+      });
     });
-  });
-  dotsContainer.appendChild(dot);
-});
 
-slider.addEventListener('scroll', () => {
-  const scrollPosition = slider.scrollLeft + slider.offsetWidth / 2;
-  document.querySelectorAll('.dot').forEach((dot, index) => {
-    const card = cards[index];
-    if (card.offsetLeft <= scrollPosition && card.offsetLeft + card.offsetWidth > scrollPosition) {
-      document.querySelector('.dot.active').classList.remove('active');
-      dot.classList.add('active');
-    }
-  });
-});
+    // Dot navigation untuk roadmap
+    const slider = document.getElementById('roadmapSlider');
+    const dotsContainer = document.getElementById('dotsContainer');
+    const cards = document.querySelectorAll('.phase-card');
 
-// FAQ klik logic — DIPISAH dari scroll event!
-document.querySelectorAll('.faq-question').forEach(question => {
-  question.addEventListener('click', () => {
-    const item = question.parentNode;
-    item.classList.toggle('active');
-
-    // Tutup item lain
-    document.querySelectorAll('.faq-item').forEach(otherItem => {
-      if (otherItem !== item && otherItem.classList.contains('active')) {
-        otherItem.classList.remove('active');
-      }
-    });
-  });
-});
-            });
+    cards.forEach((_, index) => {
+      const dot = document.createElement('div');
+      dot.classList.add('dot');
+      if (index === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => {
+        slider.scrollTo({
+          left: cards[index].offsetLeft,
+          behavior: 'smooth'
         });
-   
-</script></body>
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    slider.addEventListener('scroll', () => {
+      const scrollPosition = slider.scrollLeft + slider.offsetWidth / 2;
+      document.querySelectorAll('.dot').forEach((dot, index) => {
+        const card = cards[index];
+        if (card.offsetLeft <= scrollPosition && card.offsetLeft + card.offsetWidth > scrollPosition) {
+          document.querySelector('.dot.active').classList.remove('active');
+          dot.classList.add('active');
+        }
+      });
+    });
+
+    // FAQ klik logic — ini berdiri sendiri
+    document.querySelectorAll('.faq-question').forEach(question => {
+      question.addEventListener('click', () => {
+        const item = question.parentNode;
+        item.classList.toggle('active');
+
+        document.querySelectorAll('.faq-item').forEach(otherItem => {
+          if (otherItem !== item && otherItem.classList.contains('active')) {
+            otherItem.classList.remove('active');
+          }
+        });
+      });
+    });
+    </script>
+</body>
 </html>
