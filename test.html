@@ -1164,6 +1164,21 @@ margin: 0;
   background: white;
   border-radius: 2px;
 }
+.header-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-wrapper.scrolled {
+  background: rgba(0, 0, 0, 0.7); /* Hitam transparan saat scroll */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Tambahan efek bayangan */
+  backdrop-filter: blur(6px); /* Efek blur jika didukung browser */
+}
   </style>
 </head>
 <body>
