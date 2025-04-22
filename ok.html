@@ -969,6 +969,25 @@ margin: 0;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
+.footer-box {
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 900px;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 30px rgba(0, 200, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 12px;
+}
+
+.footer-line {
+  margin: 1rem auto;
+  width: 50px;
+  height: 2px;
+  background-color: #00bfff;
+  opacity: 0.8;
+  border-radius: 1px;
+}
   </style>
 </head>
 <body>
@@ -1301,19 +1320,28 @@ margin: 0;
   </div>
 </div>
     <!-- Footer -->
-    <footer>
-    	  <div class="footer-branding">
-    <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="nebula-logo">
-    <p class="footer-description">A decentralised supercomputer designed to meet the demand for next gen AI</p>
-    	 <div class="partner-icons">
-      <a href="https://x.com" target="_blank"><img src="images/twitter.svg" alt="X"></a>
-      <a href="https://t.me" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
-      <a href="https://contoh.com" target="_blank"><img src="images/dextools.svg" alt="Dextools"></a>
-      <a href="https://contoh.com" target="_blank"><img src="images/ethscan.svg" alt="Etherscan"></a>
-      <a href="https://contoh.com" target="_blank"><img src="images/gitbook.svg" alt="Gitbook"></a>
+<!-- Footer -->
+<footer>
+  <div class="footer-box">
+    <div class="footer-branding">
+      <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="nebula-logo">
+      <p class="footer-description">A decentralised supercomputer designed to meet the demand for next gen AI</p>
+      
+      <div class="partner-icons">
+        <a href="https://x.com" target="_blank"><img src="images/twitter.svg" alt="X"></a>
+        <a href="https://t.me" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
+        <a href="https://contoh.com" target="_blank"><img src="images/dextools.svg" alt="Dextools"></a>
+        <a href="https://contoh.com" target="_blank"><img src="images/ethscan.svg" alt="Etherscan"></a>
+        <a href="https://contoh.com" target="_blank"><img src="images/gitbook.svg" alt="Gitbook"></a>
+      </div>
+
+      <!-- Garis biru kecil -->
+      <div class="footer-line"></div>
+
+      <p>&copy; 2025 Nebula AI. All rights reserved.</p>
     </div>
-        <p>&copy; 2025 Nebula AI. All rights reserved.</p>
-    </footer>
+  </div>
+</footer>
 
   <script>
     // Navigation Menu Toggle
