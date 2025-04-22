@@ -157,6 +157,49 @@
       background: transparent;
       transition: filter 0.3s ease;
     }
+    .card-box {
+  background-color: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 1.25rem;
+  padding: 2rem;
+  margin: 1rem;
+  box-shadow: 0 0 15px rgba(59, 130, 246, 0.08);
+  transition: 0.3s ease;
+  color: white;
+  max-width: 320px;
+  flex: 1;
+}
+
+.card-box:hover {
+  box-shadow: 0 0 25px rgba(59, 130, 246, 0.3);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.card-box h3 {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.card-box p {
+  color: #94a3b8;
+  font-size: 0.95rem;
+}
+
+.card-box img,
+.card-box video {
+  width: 100%;
+  border-radius: 1rem;
+  object-fit: cover;
+}
+
+.pricing-grid,
+.working-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
   </style>
 </head>
 <body>
@@ -206,71 +249,76 @@
         </div>
         
       </section>
-<!-- Pricing Section --><section id="pricing" class="section" style="text-align: center;">
+<!-- Pricing Section -->
+<section id="pricing" class="section" style="text-align: center;">
   <div class="pricing-label">Pricing</div>
   <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
     Access our GPUs at affordable pricing
-  </p>  <div class="pricing-grid">
-    <div class="pricing-card">
+  </p>  
+  <div class="pricing-grid">
+    <div class="card-box">
       <video autoplay loop muted playsinline class="pricing-video">
         <source src="images/setup.mov" type="video/mp4">
         <source src="images/setup.webm" type="video/webm">
       </video>
       <h3>Setup your node</h3>
       <p>Connect your GPU node to our decentralized network and start earning.</p>
-    </div><div class="pricing-card">
-  <video autoplay loop muted playsinline class="pricing-video">
-    <source src="images/Connect to our servers.mov" type="video/mp4">
-    <source src="images/Connect to our servers.webm" type="video/webm">
-  </video>
-  <h3>Connect to our Servers</h3>
-  <p>Link your node to our high-performance P2P marketplace and access limitless computing power.</p>
-</div>
+    </div>
+    
+    <div class="card-box">
+      <video autoplay loop muted playsinline class="pricing-video">
+        <source src="images/Connect to our servers.mov" type="video/mp4">
+        <source src="images/Connect to our servers.webm" type="video/webm">
+      </video>
+      <h3>Connect to our Servers</h3>
+      <p>Link your node to our high-performance P2P marketplace and access limitless computing power.</p>
+    </div>
 
-<div class="pricing-card">
-  <video autoplay loop muted playsinline class="pricing-video">
-    <source src="images/payouts.mov" type="video/mp4">
-    <source src="images/Instant payouts.webm" type="video/webm">
-  </video>
-  <h3>Instant Payouts</h3>
-  <p>Receive instant rewards in ETH or NAI as your node processes AI workloads.</p>
-</div>
-
+    <div class="card-box">
+      <video autoplay loop muted playsinline class="pricing-video">
+        <source src="images/payouts.mov" type="video/mp4">
+        <source src="images/Instant payouts.webm" type="video/webm">
+      </video>
+      <h3>Instant Payouts</h3>
+      <p>Receive instant rewards in ETH or NAI as your node processes AI workloads.</p>
+    </div>
   </div>
-</section><!-- Working Section --><section id="working" class="section" style="text-align: center;">
+</section>
+
+<!-- Working Section -->
+<section id="working" class="section" style="text-align: center;">
   <div class="pricing-label">Working</div>
   <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
     How It Works
-  </p>  <div class="card">
-    <img src="images/card1.png" alt="Earn with NAI">
-    <div class="card-content">
+  </p>  
+
+  <div class="working-grid">
+    <div class="card-box">
+      <img src="images/card1.png" alt="Earn with NAI">
       <h3>Earn with $NAI</h3>
       <p>Pay for units with $ETH or $NAI, receive $NAI for your lending</p>
-    </div>
-  </div>  <div class="card">
-    <img src="images/card2.png" alt="Rent and Lend">
-    <div class="card-content">
+    </div>  
+    <div class="card-box">
+      <img src="images/card2.png" alt="Rent and Lend">
       <h3>Rent and lend</h3>
       <p>Join our Nebula marketplace to earn from your lent GPU rentals, stake your $NAI to earn from fees and pooled generate revenue.</p>
-    </div>
-  </div>  <div class="card">
-    <img src="images/card3.png" alt="Processing and verification">
-    <div class="card-content">
+    </div>  
+    <div class="card-box">
+      <img src="images/card3.png" alt="Processing and verification">
       <h3>Processing and verification</h3>
       <p>Clients submit their computational tasks to Nebula, where they are instantly distributed across our secure network of high-performance AI nodes.</p>
-    </div>
-  </div>  <div class="card">
-    <img src="images/card4.png" alt="Encrypted delivery">
-    <div class="card-content">
+    </div>  
+    <div class="card-box">
+      <img src="images/card4.png" alt="Encrypted delivery">
       <h3>Encrypted delivery</h3>
       <p>Verified results are encrypted and returned to the clients promptly.</p>
-    </div>
-  </div>  <div class="card">
-    <img src="images/card5.png" alt="Task submission">
-    <div class="card-content">
+    </div>  
+    <div class="card-box">
+      <img src="images/card5.png" alt="Task submission">
       <h3>Task submission and distribution</h3>
       <p>The tasks are processed in parallel, harnessing the power of the L1 & L2 networks for secure, efficient, and verifiable computation.</p>
     </div>
+  </div>
   </div>
 </section><!-- Infrastructure Partners --><section class="section">
   <h2>Infrastructure Partners</h2>
