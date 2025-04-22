@@ -1015,6 +1015,44 @@ margin: 0;
   border-bottom: none;
   box-shadow: none;
 }
+.nav-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65); /* 65% hitam transparan */
+  backdrop-filter: blur(8px); /* efek blur background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-menu.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-menu a {
+  color: white;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border: 1px solid rgba(0, 128, 255, 0.4); /* garis biru elegan */
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-menu a:hover {
+  background: rgba(0, 128, 255, 0.2);
+  color: #00bfff;
+}
   </style>
 </head>
 <body>
