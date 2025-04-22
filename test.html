@@ -1140,10 +1140,16 @@ body {
   position: relative; /* Agar absolute-nya grid-overlay ikut ke body */
 }
 
-/* Grid overlay - tetap di bawah header */
+/* Kontainer utama untuk memastikan posisi konten di atas grid */
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Grid tetap di atas background dan tidak menutupi konten */
 .grid-overlay {
-  position: absolute;
-  top: 70px; /* sejajar bawah logo/header */
+  position: fixed;
+  top: 70px; /* posisi tepat di bawah header */
   left: 0;
   width: 100%;
   height: 800px;
@@ -1157,54 +1163,25 @@ body {
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
-/* Kolom copy wallet */
+/* Copy box tetap muncul di atas grid */
 .copy-box {
-  position: relative;
-  z-index: 1;
+  margin-top: 150px; /* atur jarak dari header/grid */
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 8rem auto 3rem; /* diturunin dari grid/header */
   padding: 0.6rem 1.2rem;
   border: 1.5px solid white;
   border-radius: 2rem;
   width: fit-content;
+  margin-inline: auto;
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   font-family: monospace;
   font-size: 0.9rem;
   gap: 1rem;
-  backdrop-filter: blur(4px);
-}
-
-/* Tombol salin */
-.copy-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-/* Ikon copy */
-.copy-icon {
-  display: inline-block;
+  z-index: 2;
   position: relative;
-  width: 18px;
-  height: 18px;
-  border: 2px solid white;
-  border-radius: 3px;
-}
-
-.copy-icon::before {
-  content: '';
-  position: absolute;
-  top: -4px;
-  left: 4px;
-  width: 18px;
-  height: 18px;
-  border: 2px solid white;
-  border-radius: 3px;
-  opacity: 0.6;
+  backdrop-filter: blur(4px);
 }
   </style>
 </head>
@@ -1230,10 +1207,10 @@ body {
     </nav>
   </header>
 
-<!-- Grid background di luar semua konten -->
+<!-- Grid background -->
 <div class="grid-overlay"></div>
 
-<!-- Konten utama dimulai di sini -->
+<!-- Konten utama -->
 <div class="main-content">
   <div class="copy-box">
     <span id="wallet-address">0x701C7549a7F6093...</span>
