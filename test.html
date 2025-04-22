@@ -1140,20 +1140,71 @@ body {
   position: relative; /* Agar absolute-nya grid-overlay ikut ke body */
 }
 
+/* Grid overlay - tetap di bawah header */
 .grid-overlay {
   position: absolute;
-  top: 0; /* Mulai dari atas */
+  top: 70px; /* sejajar bawah logo/header */
   left: 0;
   width: 100%;
-  height: 800px; /* Atau sesuaikan dengan kebutuhan */
+  height: 800px;
   background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.08) 1.2px, transparent 1.2px),
-    linear-gradient(to bottom, rgba(255,255,255,0.08) 1.2px, transparent 1.2px);
-  background-size: 60px 60px;
-  pointer-events: none;
+    linear-gradient(to right, rgba(255,255,255,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 55px 55px;
   z-index: 0;
+  pointer-events: none;
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
   -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+/* Kolom copy wallet */
+.copy-box {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 8rem auto 3rem; /* diturunin dari grid/header */
+  padding: 0.6rem 1.2rem;
+  border: 1.5px solid white;
+  border-radius: 2rem;
+  width: fit-content;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-family: monospace;
+  font-size: 0.9rem;
+  gap: 1rem;
+  backdrop-filter: blur(4px);
+}
+
+/* Tombol salin */
+.copy-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Ikon copy */
+.copy-icon {
+  display: inline-block;
+  position: relative;
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-radius: 3px;
+}
+
+.copy-icon::before {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 4px;
+  width: 18px;
+  height: 18px;
+  border: 2px solid white;
+  border-radius: 3px;
+  opacity: 0.6;
 }
   </style>
 </head>
