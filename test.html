@@ -1106,78 +1106,20 @@ margin: 0;
 .nav-menu.show {
   display: flex;
 }
-/* Navbar wrapper supaya bisa sticky dan berubah saat scroll */
-.header-wrapper {
-  position: sticky;
-  top: 0;
-  z-index: 999;
-  background-color: #000; /* Warna awal navbar */
-  transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
-}
-
-/* Saat di-scroll ke bawah, navbar jadi transparan & blur */
-.header-wrapper.scrolled {
-  background-color: rgba(0, 0, 0, 0.75); /* Hitam transparan */
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Glow halus */
-}
-
-/* Logo styling (kalau mau disesuaikan) */
-.logo {
-  height: 40px;
-  width: auto;
-}
-
-/* Nav menu default */
-.nav-menu {
-  position: absolute;
-  top: 70px;
-  right: 2rem;
-  background: #111;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  flex-direction: column;
-  gap: 1rem;
-  display: none;
-}
-
-/* Tautan nav */
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-/* Toggle (hamburger) */
-.nav-toggle {
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.nav-toggle span {
-  display: block;
-  height: 3px;
-  width: 25px;
-  background: white;
-  border-radius: 2px;
-}
-.header-wrapper {
+.header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  background-color: transparent;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
   z-index: 1000;
-  background: transparent;
-  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.header-wrapper.scrolled {
-  background: rgba(0, 0, 0, 0.7); /* Hitam transparan saat scroll */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Tambahan efek bayangan */
-  backdrop-filter: blur(6px); /* Efek blur jika didukung browser */
+.header.scrolled {
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.4);
+  backdrop-filter: blur(6px);
 }
   </style>
 </head>
@@ -1530,16 +1472,13 @@ margin: 0;
   document.addEventListener('DOMContentLoaded', function () {
     const navToggle = document.getElementById('navToggle');
     const navMenu = document.getElementById('navMenu');
-    const headerWrapper = document.querySelector('.header-wrapper');
 
-    // Toggle menu
     if (navToggle && navMenu) {
       navToggle.addEventListener('click', function () {
         navMenu.classList.toggle('show');
         navToggle.classList.toggle('open');
       });
 
-      // Tutup menu saat link diklik
       document.querySelectorAll('.nav-menu a').forEach(link => {
         link.addEventListener('click', () => {
           navMenu.classList.remove('show');
@@ -1547,15 +1486,6 @@ margin: 0;
         });
       });
     }
-
-    // Sticky header efek scroll
-    window.addEventListener('scroll', function () {
-      if (window.scrollY > 10) {
-        headerWrapper.classList.add('scrolled');
-      } else {
-        headerWrapper.classList.remove('scrolled');
-      }
-    });
 
     // Dot navigation untuk roadmap
     const slider = document.getElementById('roadmapSlider');
@@ -1604,9 +1534,19 @@ margin: 0;
         });
       });
     });
+
+    // Sticky Header with transparent background
+    const header = document.querySelector('.header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
   });
 
-  // Fungsi Copy
+  // Copy address
   function copyToClipboard() {
     const text = document.getElementById("wallet-address").innerText;
     navigator.clipboard.writeText(text).then(() => {
