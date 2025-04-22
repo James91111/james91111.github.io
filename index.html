@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nebula AI - Static Rebuild</title>
-  <link rel="stylesheet" href="css/css-364fe3a4be178945.css" />
+  <title>Nebula AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
@@ -23,7 +23,8 @@
     header {
       padding: 1rem;
       text-align: center;
-      background-color: #0f172a;
+      background-color: #000;
+      border-bottom: 1px solid #3b82f6;
     }
     header img {
       width: 180px;
@@ -33,13 +34,12 @@
       max-width: 1200px;
       margin: 0 auto;
     }
-    h1.gradient-text {
-      font-size: 3rem;
-      font-weight: 700;
-      background: linear-gradient(to right, #1e3a8a, #3b82f6, #ffffff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+    h1.hero-title {
+      font-size: 24px;
+      font-weight: 600;
       text-align: center;
+      line-height: 1.4;
+      color: #3b82f6;
     }
     h2 {
       font-size: 2rem;
@@ -108,14 +108,20 @@
       margin-bottom: 0.75rem;
       color: white;
     }
-    
-    /* Pricing Section Styles */
     #pricing {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
       padding: 3rem 1.5rem;
-      position: relative;
+    }
+    .pricing-label {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      border: 2px solid #3b82f6;
+      border-radius: 999px;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: white;
+      background-color: transparent;
+      box-shadow: 0 0 10px #3b82f6;
+      margin-bottom: 1rem;
     }
     .pricing-card {
       background-color: #0f172a;
@@ -129,21 +135,36 @@
       border-color: #3b82f6;
       transform: translateY(-5px);
     }
-    .pricing-card h3 {
-      font-weight: 700;
-      font-size: 1.25rem;
-      margin-bottom: 1rem;
-      color: white;
-    }
-    .pricing-card p {
-      font-size: 0.9rem;
-    }
     .pricing-video {
       width: 100%;
       border-radius: 0.5rem;
       margin-bottom: 1rem;
     }
-    
+    .partner-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin: 20px 0;
+    }
+    .partner-icons img {
+      width: 32px;
+      height: 32px;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+    .partner-icons img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.875rem;
+      color: #94a3b8;
+      border-top: 1px solid #1e293b;  
+    }
     @media (min-width: 768px) {
       .card {
         flex-direction: row;
@@ -157,128 +178,66 @@
       .card-content {
         width: 60%;
       }
-      .card:nth-child(even) {
-        flex-direction: row-reverse;
-      }
-      
-      /* Pricing grid for desktop */
       .pricing-grid {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 1.5rem;
       }
-      .pricing-card {
-        margin-bottom: 0;
-      }
     }
-    
-    footer {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: 0.875rem;
-      color: #94a3b8;
-      border-top: 1px solid #1e293b;  
-    }
-    .pricing-label {
-  display: inline-block;
-  padding: 0.5rem 1.5rem;
-  border: 2px solid #3b82f6;
-  border-radius: 999px;
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: white;
-  background-color: transparent;
-  box-shadow: 0 0 10px #3b82f6;
-  margin-bottom: 1rem;
-}
-.partner-icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 24px;
-  margin: 20px 0;
-}
-
-.partner-icons img {
-  width: 32px;
-  height: 32px;
-  filter: brightness(0) invert(1);
-  opacity: 0.8;
-  transition: transform 0.2s ease, opacity 0.2s ease;
-}
-
-.partner-icons img:hover {
-  transform: scale(1.1);
-  opacity: 1;
-}
   </style>
 </head>
 <body>
   <header>
     <img src="assets/nebulawidelogo.png" alt="Nebula Logo">
   </header>
-  
+
   <section class="section">
     <h1 class="hero-title">
-  A decentralised supercomputer designed to meet the demand for next gen AI
-</h1>
+      A decentralised supercomputer designed to meet the demand for next gen AI
+    </h1>
+    <p style="text-align:center; margin-top:1rem;">
+      Access GPUs from our decentralised servers or from our vast network of community members.
+    </p>
 
-<style>
-  .hero-title {
-    font-size: 20px;
-    font-weight: 600;
-    text-align: center;
-    line-height: 1.4;
-    color: #3b82f6; /* Tailwind blue-500 */
-  }
-</style>
-    <p style="text-align:center; margin-top:1rem;">Access GPUs from our decentralised servers or from our vast network of community members.</p>
- <div class="partner-icons">
-  <a href="https://x.com" target="_blank"><img src="images/twitter.svg" alt="X"></a>
-  <a href="https://t.me" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
-  <a href="https://contoh.com" target="_blank"><img src="images/dextools.svg" alt="Icon 3"></a>
-  <a href="https://contoh.com" target="_blank"><img src="images/ethscan.svg" alt="Icon 4"></a>
-  <a href="https://contoh.com" target="_blank"><img src="images/gitbook.svg" alt="Icon 5"></a>
-</div>
-   <div class="btn-group">
+    <div class="partner-icons">
+      <a href="https://x.com" target="_blank"><img src="images/twitter.svg" alt="X"></a>
+      <a href="https://t.me" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
+      <a href="https://contoh.com" target="_blank"><img src="images/dextools.svg" alt="Icon 3"></a>
+      <a href="https://contoh.com" target="_blank"><img src="images/ethscan.svg" alt="Icon 4"></a>
+      <a href="https://contoh.com" target="_blank"><img src="images/gitbook.svg" alt="Icon 5"></a>
+    </div>
+
+    <div class="btn-group">
       <a href="https://app.nebula-ai.com/buy" class="btn btn-primary">Buy $NAI</a>
       <a href="https://app.nebula-ai.com/rent" class="btn btn-outline">Rent GPU</a>
     </div>
-      </section>
-  
-  <!-- Pricing Section -->
+  </section>
+
   <section id="pricing" class="section">
     <div class="text-center">
-   <div class="text-center">
-  <div class="pricing-label">Pricing</div>
-  <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
-    Access our GPUs at affordable pricing
-  </p>
-</div>
+      <div class="pricing-label">Pricing</div>
+      <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
+        Access our GPUs at affordable pricing
+      </p>
     </div>
-    
+
     <div class="pricing-grid">
       <div class="pricing-card">
         <video autoplay loop muted playsinline class="pricing-video">
-          <source src="images/setup.mov" type="video/mp4">
           <source src="images/setup.webm" type="video/webm">
         </video>
         <h3>Setup your node</h3>
         <p>Connect your GPU node to our decentralized network and start earning.</p>
       </div>
-      
       <div class="pricing-card">
         <video autoplay loop muted playsinline class="pricing-video">
-          <source src="images/Connect to our servers.mov" type="video/mp4">
           <source src="images/Connect to our servers.webm" type="video/webm">
         </video>
         <h3>Connect to our Servers</h3>
         <p>Link your node to our high-performance P2P marketplace and access limitless computing power.</p>
       </div>
-      
       <div class="pricing-card">
         <video autoplay loop muted playsinline class="pricing-video">
-          <source src="images/payouts.mov" type="video/mp4">
           <source src="images/Instant payouts.webm" type="video/webm">
         </video>
         <h3>Instant Payouts</h3>
@@ -286,15 +245,15 @@
       </div>
     </div>
   </section>
-  
-  </section>
-  
+
   <section class="section">
-       <div class="text-center">
-  <div class="pricing-label">Working</div>
-  <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
-    How It Works
-  </p>
+    <div class="text-center">
+      <div class="pricing-label">Working</div>
+      <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
+        How It Works
+      </p>
+    </div>
+
     <div class="card">
       <img src="images/card1.png" alt="Earn with NAI">
       <div class="card-content">
@@ -331,12 +290,14 @@
       </div>
     </div>
   </section>
-  </section>
-  
+
   <section class="section">
     <h2>Infrastructure Partners</h2>
     <p style="text-align:center;">Partner logos and more detail coming soon...</p>
   </section>
-  
+
   <footer>
-    <p>&copy; 2025 Nebula AI. All rights
+    <p>&copy; 2025 Nebula AI. All rights reserved.</p>
+  </footer>
+</body>
+</html>
