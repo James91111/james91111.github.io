@@ -593,7 +593,74 @@ margin: 0;
         .faq-item.active .faq-answer {
             padding: 0 1.5rem 1rem;
             max-height: 500px;
-       
+       .audit-section {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #000;
+  color: #fff;
+}
+
+.audit-links {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.audit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.audit-badge {
+  width: 100px;
+  margin-bottom: 1rem;
+}
+
+.audit-button {
+  background-color: #3b82f6;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.footer-branding {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.nebula-logo {
+  width: 200px;
+  margin-bottom: 1rem;
+}
+
+.footer-description {
+  color: #94a3b8;
+  margin-bottom: 1.5rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-icons img {
+  width: 24px;
+  height: 24px;
+  opacity: 0.9;
+  transition: transform 0.2s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+  opacity: 1;
+}
     }
   </style>
 </head>
@@ -894,9 +961,32 @@ margin: 0;
     <!-- Infrastructure Partners -->
     <section class="section">
         <h2>Infrastructure Partners</h2>
-        <p style="text-align:center;">Partner logos and more detail coming soon...</p>
+     
     </section>
+<div class="audit-section">
+  <div class="audit-links">
+    <div class="audit-item">
+      <img src="images/badge1.png" alt="Assure Badge" class="audit-badge">
+      <a href="https://assuredefi.com/profile-link" class="audit-button" target="_blank">Assure DeFi profile</a>
+    </div>
+    <div class="audit-item">
+      <img src="images/badge2.png" alt="SourceHat Logo" class="audit-badge">
+      <a href="https://sourcehat.com/audit-link" class="audit-button" target="_blank">Audit</a>
+    </div>
+  </div>
 
+  <div class="footer-branding">
+    <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="nebula-logo">
+    <p class="footer-description">A decentralised supercomputer designed to meet the demand for next gen AI</p>
+    <div class="social-icons">
+      <a href="https://twitter.com/yourproject" target="_blank"><img src="images/twitter.svg" alt="Twitter"></a>
+      <a href="https://t.me/yourproject" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
+      <a href="#"><img src="images/dextools.png" alt="Icon 3"></a>
+      <a href="#"><img src="images/ethscan.png" alt="Icon 4"></a>
+      <a href="#"><img src="images/gitbook.png" alt="Icon 5"></a>
+    </div>
+  </div>
+</div>
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Nebula AI. All rights reserved.</p>
