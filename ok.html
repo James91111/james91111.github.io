@@ -1018,24 +1018,51 @@ margin: 0;
   border-bottom: none;
   box-shadow: none;
 }
+.footer-box {
+  padding: 2rem;
+  background-color: #000;
+  border-radius: 1rem;
+  text-align: center;
+  color: #ccc;
+}
+
 .footer-branding {
-  display: flex !important;
-  align-items: flex-start !important;
-  flex-direction: row !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 1rem;
-  text-align: left !important;
+  margin-bottom: 1.5rem;
 }
 
 .nebula-logo {
-  width: 100px !important;
-  height: auto !important;
+  width: 60px;
+  height: auto;
 }
 
 .footer-description {
-  font-size: 0.9rem !important;
-  line-height: 1.4 !important;
-  max-width: 300px !important;
-  margin: 0 !important;
+  font-size: 0.9rem;
+  max-width: 300px;
+  text-align: left;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.footer-line {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #3b82f6, transparent);
+  margin: 1rem 0;
+}
+
+.footer-bottom {
+  font-size: 0.8rem;
+  color: #888;
 }
   </style>
 </head>
@@ -1364,9 +1391,13 @@ margin: 0;
   <div class="footer-box">
     <div class="footer-branding">
       <img src="images/nebu.png" alt="Nebula Logo" class="nebula-logo">
-      <p class="footer-description">A decentralised supercomputer designed to meet the demand for next gen AI</p>
-      
-      <div class="partner-icons">
+      <p class="footer-description">
+        A decentralised supercomputer designed to meet the demand for next gen AI
+      </p>
+    </div>
+
+    <div class="footer-socials">
+          <div class="partner-icons">
         <a href="https://x.com" target="_blank"><img src="images/twitter.svg" alt="X"></a>
         <a href="https://t.me" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
         <a href="https://contoh.com" target="_blank"><img src="images/dextools.svg" alt="Dextools"></a>
@@ -1374,11 +1405,9 @@ margin: 0;
         <a href="https://contoh.com" target="_blank"><img src="images/gitbook.svg" alt="Gitbook"></a>
       </div>
 
-      <!-- Garis biru kecil -->
-      <div class="footer-line"></div>
+    <hr class="footer-line">
 
-      <p>&copy; 2025 Nebula AI. All rights reserved.</p>
-    </div>
+    <p class="footer-bottom">© 2025 Nebula. All rights reserved</p>
   </div>
 </footer>
 
