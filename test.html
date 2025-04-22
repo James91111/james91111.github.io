@@ -311,10 +311,10 @@
 }
 
 .card-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  justify-items: center;
+  display: flex;
+  flex-direction: column; /* Tumpuk ke bawah */
+  align-items: center;
+  gap: 2rem; /* Jarak antar kartu */
 }
 
 .nebula-card {
@@ -334,6 +334,18 @@
   width: 100%;
   border-radius: 0.75rem;
   margin-bottom: 1rem;
+}
+.glow-label {
+  display: inline-block;
+  padding: 20px 40px;
+  border: 2px solid #4e6ef2;
+  border-radius: 999px;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 700;
+  background-color: #0b0c1c;
+  box-shadow: 0 0 20px #4e6ef2;
+  margin-bottom: 2rem;
 }
   </style>
 </head>
@@ -384,7 +396,7 @@
 <!-- Pricing Section -->
 <section id="pricing" class="section">
   <div class="section-header">
-    <div class="section-label">Pricing</div>
+<div class="glow-label">Pricing</div>
   </div>
   <h2 class="section-title">Access our GPUs at affordable pricing</h2>
   <div class="card-grid">
@@ -420,7 +432,7 @@
 <!-- Working Section -->
 <section id="working" class="section">
   <div style="text-align: center;">
-    <div class="section-label">Working</div>
+ <div class="glow-label">Working</div>
   </div>
   <h2 class="section-title">How It Works</h2>
   
