@@ -913,16 +913,25 @@ margin: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 4rem auto;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid white;
-  border-radius: 2rem;
+  margin: 2rem auto;
+  padding: 0.5rem 1rem;
+  border: 1px solid white;
+  border-radius: 1.5rem;
+  max-width: 90%;
   width: fit-content;
   color: white;
   font-family: monospace;
-  font-size: 1rem;
-  gap: 1rem;
+  font-size: 0.9rem;
+  gap: 0.75rem;
   background-color: transparent;
+  flex-wrap: wrap;
+  word-break: break-word;
+  box-sizing: border-box;
+}
+
+#wallet-address {
+  max-width: 100%;
+  overflow-wrap: break-word;
 }
 
 .copy-button {
@@ -1096,6 +1105,11 @@ margin: 0;
 
   <div class="grid-overlay"></div>
 </div>
+<div class="copy-box">
+  <span id="wallet-address">0x701C7542cD5D69494ef9fc8829a7F6093...</span>
+  <button class="copy-button" onclick="copyToClipboard()">
+    <span class="copy-icon"></span>
+    </div>
     </bottom>
   <section class="section">
     <h1 class="hero-title">A decentralised supercomputer designed to meet the demand for next gen AI</h1>
