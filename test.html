@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -125,11 +126,11 @@
     }
 
     .btn {
-      padding: 1rem 2rem;
+      padding: 1.25rem 2.25rem;
       border-radius: 0.5rem;
       font-weight: 600;
       cursor: pointer;
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       text-decoration: none;
       display: inline-block;
     }
@@ -158,7 +159,6 @@
       transition: filter 0.3s ease;
     }
 
-    /* Nebula Network Style Cards */
     .section-label {
       display: inline-block;
       background: linear-gradient(90deg, #3b82f6, #1e40af);
@@ -191,38 +191,14 @@
     }
 
     .nebula-card {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid rgba(59, 130, 246, 0.2);
+      background: #000;
+      border: 1px solid rgba(59, 130, 246, 0.3);
       border-radius: 1rem;
       padding: 2rem;
       transition: all 0.3s ease;
       position: relative;
       overflow: hidden;
       z-index: 1;
-    }
-
-    .nebula-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
-      transform: rotate(30deg);
-      z-index: -1;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .nebula-card:hover {
-      border-color: rgba(59, 130, 246, 0.5);
-      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.2);
-      transform: translateY(-5px);
-    }
-
-    .nebula-card:hover::before {
-      opacity: 1;
     }
 
     .nebula-card img,
@@ -248,7 +224,34 @@
       line-height: 1.6;
     }
 
-    /* Footer */
+    .card-box {
+      background: #000;
+      border: 1px solid rgba(59, 130, 246, 0.3);
+      border-radius: 1rem;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .card-box img {
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-box h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .card-box p {
+      color: #94a3b8;
+      text-align: left;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
     footer {
       text-align: center;
       padding: 4rem 1.5rem;
@@ -262,16 +265,16 @@
       .hero-title {
         font-size: 1.5rem;
       }
-      
+
       .btn {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
+        padding: 1rem 1.5rem;
+        font-size: 1.05rem;
       }
-      
+
       .section {
         padding: 3rem 1.5rem;
       }
-      
+
       .section-title {
         font-size: 1.75rem;
       }
