@@ -949,15 +949,19 @@ margin: 0;
   border-radius: 3px;
   opacity: 0.6;
 }
+.header-wrapper {
+  position: relative;
+}
+
 .grid-overlay {
   position: absolute;
-  top: 120px; /* atur sesuai posisi bawah logo */
+  top: 100%; /* pas di bawah header */
   left: 0;
   width: 100%;
-  height: 800px; /* bisa disesuaikan */
+  height: 800px;
   background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.15) 1.3px, transparent 1.3px),
-    linear-gradient(to bottom, rgba(255,255,255,0.15) 1.3px, transparent 1.3px);
+    linear-gradient(to right, rgba(255,255,255,0.1) 1.3px, transparent 1.3px),
+    linear-gradient(to bottom, rgba(255,255,255,0.1) 1.3px, transparent 1.3px);
   background-size: 60px 60px;
   z-index: 0;
   pointer-events: none;
@@ -968,26 +972,30 @@ margin: 0;
 </head>
 <body>
 <body>
+ <!-- Wrapper agar grid-overlay posisinya relatif terhadap header -->
+<div class="header-wrapper">
   <!-- Navigation Menu -->
-    <header class="header">
-        <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="logo">
-       
-        <div class="nav-toggle" id="navToggle">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        
-        <nav class="nav-menu" id="navMenu">
-            <a href="#marketplace">Marketplace</a>
-            <a href="#pricing">Pricing</a>
-            <a href="#working">How it Works</a>
-            <a href="#roadmap">Roadmap</a>
-            <a href="#faq">FAQ</a>
-            <a href="#document">Document</a>
-        </nav>
-    </header>
-    <div class="grid-overlay"></div>
+  <header class="header">
+    <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="logo">
+
+    <div class="nav-toggle" id="navToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="nav-menu" id="navMenu">
+      <a href="#marketplace">Marketplace</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#working">How it Works</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+      <a href="#document">Document</a>
+    </nav>
+  </header>
+
+  <!-- Grid kotak putih transparan -->
+  <div class="grid-overlay"></div>
 <div class="copy-box">
   <span id="wallet-address">0x701C7542cD5D69494ef9fc8829a7F6093...</span>
   <button class="copy-button" onclick="copyToClipboard()">
