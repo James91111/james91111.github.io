@@ -1084,8 +1084,10 @@ margin: 0;
 .nav-menu {
   position: absolute;
   top: 100%;
-  left: 1rem; /* Tambahkan jarak dari kiri */
-  right: 1rem; /* Tambahkan jarak dari kanan */
+  left: 0;
+  right: 0;
+  width: calc(100% - 2rem); /* Auto lebar tapi ada jarak kiri-kanan */
+  margin: 0 auto;            /* Biar tetap di tengah */
   background: rgba(0, 0, 0, 0.75);
   border: 1px solid #2563eb;
   box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
