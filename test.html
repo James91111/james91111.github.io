@@ -19,19 +19,67 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    header {
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 1rem 2rem;
-      text-align: left;
       background-color: #000;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      position: relative;
+      z-index: 10;
     }
-    header img {
+
+    .logo {
       width: 180px;
     }
+
+    .nav-toggle {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 24px;
+      cursor: pointer;
+    }
+
+    .nav-toggle span {
+      height: 3px;
+      background-color: white;
+      border-radius: 3px;
+      display: block;
+    }
+
+    .nav-menu {
+      position: absolute;
+      top: 70px;
+      right: 2rem;
+      background: #111;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      flex-direction: column;
+      gap: 1rem;
+      display: none;
+    }
+
+    .nav-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    body.nav-open .nav-menu {
+      display: flex;
+    }
+
     .section {
       padding: 4rem 1.5rem;
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .hero-title {
       font-size: 20px;
       font-weight: 600;
@@ -39,17 +87,43 @@
       line-height: 1.4;
       color: #3b82f6;
     }
-    h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
+
     p {
       font-size: 1rem;
       color: #cbd5e1;
       font-weight: 400;
+      text-align: center;
+      margin-top: 1rem;
     }
+
+    .partner-icons {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+      margin: 20px 0;
+    }
+
+    .partner-icons img {
+      width: 32px;
+      height: 32px;
+      filter: brightness(0) invert(1);
+      opacity: 0.8;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .partner-icons img:hover {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    .btn-group {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+    }
+
     .btn {
       padding: 1rem 2rem;
       border-radius: 0.5rem;
@@ -59,212 +133,40 @@
       text-decoration: none;
       display: inline-block;
     }
+
     .btn-primary {
       background-color: #2563eb;
       color: white;
       border: none;
     }
+
     .btn-outline {
       background: transparent;
       border: 1px solid white;
       color: white;
     }
-    .btn-group {
-      margin-top: 1.5rem;
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-    }
-    .card, .pricing-card {
-      background-color: #000;
-      border: 1px solid #1e293b;
+
+    .glow-video {
+      width: 90%;
+      max-width: 640px;
+      margin: 2rem auto;
+      display: block;
       border-radius: 1rem;
-      padding: 2rem;
-      margin-bottom: 1.5rem;
-      transition: border-color 0.3s ease, box-shadow 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      opacity: 0.95;
+      filter: drop-shadow(0 0 40px rgba(59, 130, 246, 0.5));
+      background: transparent;
+      transition: filter 0.3s ease;
     }
-    .card:hover, .pricing-card:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 0 10px #3b82f6;
-    }
-    .card img {
-      width: 100%;
-      max-width: 300px;
-      height: auto;
-      border-radius: 0.5rem;
-      margin-bottom: 1.5rem;
-      object-fit: cover;
-    }
-    .card-content {
-      width: 100%;
-    }
-    .card h3, .pricing-card h3 {
-      font-weight: 700;
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      color: white;
-    }
-    .pricing-grid {
-      display: grid;
-      gap: 1.5rem;
-    }
-    @media (min-width: 768px) {
-      .card {
-        flex-direction: row;
-        gap: 2rem;
-      }
-      .card img {
-        width: 40%;
-        max-width: 200px;
-        margin-bottom: 0;
-      }
-      .card-content {
-        width: 60%;
-      }
-      .card:nth-child(even) {
-        flex-direction: row-reverse;
-      }
-      .pricing-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
-    .pricing-label {
-      display: inline-block;
-      padding: 0.5rem 1.5rem;
-      border: 2px solid #3b82f6;
-      border-radius: 999px;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: white;
-      background-color: transparent;
-      box-shadow: 0 0 10px #3b82f6;
-      margin-bottom: 1rem;
-    }
-    .partner-icons {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 24px;
-      margin: 20px 0;
-    }
-    .partner-icons img {
-      width: 32px;
-      height: 32px;
-      filter: brightness(0) invert(1);
-      opacity: 0.8;
-      transition: transform 0.2s ease, opacity 0.2s ease;
-    }
-    .partner-icons img:hover {
-      transform: scale(1.1);
-      opacity: 1;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: 0.875rem;
-      color: #94a3b8;
-      border-top: 1px solid #1e293b;  
-    }
-    .nav-toggle {
-  position: absolute;
-  right: 2rem;
-  top: 1.5rem;
-  width: 30px;
-  height: 25px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.nav-toggle span {
-  display: block;
-  height: 3px;
-  background: white;
-  border-radius: 3px;
-}
-
-.nav-menu {
-  position: absolute;
-  top: 70px;
-  right: 2rem;
-  background: #111;
-  padding: 1rem;
-  border-radius: 0.5rem;
-  display: none;
-  flex-direction: column;
-  gap: 1rem;
-  z-index: 999;
-}
-
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.nav-open .nav-menu {
-  display: flex;
-}
-/* Garis putih kecil di bawah header */
-header {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  position: relative;
-  z-index: 10;
-}
-
-}
-.glow-video {
-  width: 100%;
-  max-width: 800px;
-  margin: 2rem auto 0;
-  display: block;
-  border-radius: 1rem;
-  opacity: 0.9;
-  filter: drop-shadow(0 0 60px rgba(59, 130, 246, 0.6)); /* biru glow */
-  transition: filter 0.3s ease;
-  background: transparent;
-  z-index: 1;
-}
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: #000;
-}
-
-.nav-menu {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.nav-menu a {
-  color: white;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-
-.nav-menu a:hover {
-  color: #3b82f6;
-}
   </style>
 </head>
 <body>
   <header class="header">
     <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="logo">
-    
     <div class="nav-toggle" onclick="document.body.classList.toggle('nav-open')">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    
     <nav class="nav-menu">
       <a href="#marketplace">Marketplace</a>
       <a href="#pricing">Pricing</a>
@@ -275,9 +177,9 @@ header {
     </nav>
   </header>
 
-  <section class="section grid-background">
+  <section class="section">
     <h1 class="hero-title">A decentralised supercomputer designed to meet the demand for next gen AI</h1>
-    <p style="text-align:center; margin-top:1rem;">
+    <p>
       Access GPUs from our decentralised servers or from our vast network of community members.
     </p>
 
