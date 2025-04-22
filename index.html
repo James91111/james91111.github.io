@@ -50,7 +50,7 @@
     p {
       font-size: 1rem;
       color: #cbd5e1;
-      font-weight: 400; /* Normal weight for paragraphs */
+      font-weight: 400;
     }
     .btn {
       padding: 0.75rem 1.5rem;
@@ -103,19 +103,47 @@
       width: 100%;
     }
     .card h3 {
-      font-weight: 700; /* Bold weight for card headings */
+      font-weight: 700;
       font-size: 1.25rem;
       margin-bottom: 0.75rem;
       color: white;
     }
-    footer {
-      text-align: center;
-      padding: 2rem 1.5rem;
-      font-size: 0.875rem;
-      color: #94a3b8;
-      border-top: 1px solid #1e293b;
+    
+    /* Pricing Section Styles */
+    #pricing {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      position: relative;
     }
-
+    .pricing-card {
+      background-color: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      margin-bottom: 1.5rem;
+    }
+    .pricing-card:hover {
+      border-color: #3b82f6;
+      transform: translateY(-5px);
+    }
+    .pricing-card h3 {
+      font-weight: 700;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+      color: white;
+    }
+    .pricing-card p {
+      font-size: 0.9rem;
+    }
+    .pricing-video {
+      width: 100%;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    
     @media (min-width: 768px) {
       .card {
         flex-direction: row;
@@ -132,20 +160,42 @@
       .card:nth-child(even) {
         flex-direction: row-reverse;
       }
+      
+      /* Pricing grid for desktop */
+      .pricing-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+      }
+      .pricing-card {
+        margin-bottom: 0;
+      }
+    }
+    
+    footer {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      font-size: 0.875rem;
+      color: #94a3b8;
+      border-top: 1px solid #1e293b;
     }
   </style>
 </head>
 <body>
   <header>
     <img src="assets/nebulawidelogo.png" alt="Nebula Logo">
-  </header>  <section class="section">
+  </header>
+  
+  <section class="section">
     <h1 class="gradient-text">A decentralised supercomputer for next gen AI</h1>
     <p style="text-align:center; margin-top:1rem;">Access GPUs from decentralised servers or the community.</p>
     <div class="btn-group">
       <a href="https://app.nebula-ai.com/buy" class="btn btn-primary">Buy $NAI</a>
       <a href="https://app.nebula-ai.com/rent" class="btn btn-outline">Rent GPU</a>
     </div>
-  </section>  <section class="section">
+  </section>
+  
+  <section class="section">
     <h2>How It Works</h2>
     <div class="card">
       <img src="images/card1.png" alt="Earn with NAI">
@@ -182,12 +232,48 @@
         <p>The tasks are processed in parallel, harnessing the power of the L1 & L2 networks for secure, efficient, and verifiable computation.</p>
       </div>
     </div>
-  </section>  <section class="section">
+  </section>
+  
+  <!-- Pricing Section -->
+  <section id="pricing" class="section">
+    <div class="text-center">
+      <h2>Access our GPUs at affordable pricing</h2>
+    </div>
+    
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <video autoplay loop muted playsinline class="pricing-video">
+          <source src="images/setup.mov" type="video/mp4">
+          <source src="images/setup.webm" type="video/webm">
+        </video>
+        <h3>Setup your node</h3>
+        <p>Connect your GPU node to our decentralized network and start earning.</p>
+      </div>
+      
+      <div class="pricing-card">
+        <video autoplay loop muted playsinline class="pricing-video">
+          <source src="images/Connect to our servers.mov" type="video/mp4">
+          <source src="images/Connect to our servers.webm" type="video/webm">
+        </video>
+        <h3>Connect to our Servers</h3>
+        <p>Link your node to our high-performance P2P marketplace and access limitless computing power.</p>
+      </div>
+      
+      <div class="pricing-card">
+        <video autoplay loop muted playsinline class="pricing-video">
+          <source src="images/payouts.mov" type="video/mp4">
+          <source src="images/Instant payouts.webm" type="video/webm">
+        </video>
+        <h3>Instant Payouts</h3>
+        <p>Receive instant rewards in ETH or NAI as your node processes AI workloads.</p>
+      </div>
+    </div>
+  </section>
+  
+  <section class="section">
     <h2>Infrastructure Partners</h2>
     <p style="text-align:center;">Partner logos and more detail coming soon...</p>
-  </section>  <footer>
-    <p>&copy; 2025 Nebula AI. All rights reserved.</p>
-  </footer>  <script>
-    console.log("Static site loaded.");
-  </script></body>
-</html>
+  </section>
+  
+  <footer>
+    <p>&copy; 2025 Nebula AI. All rights
