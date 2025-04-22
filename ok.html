@@ -735,100 +735,84 @@ margin: 0;
 .social-icons img:hover {
   transform: scale(1.1);
     }
-     margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-        
-        body {
-            background-color: #000;
-            color: white;
-        }
-        
-        .verification-section {
-            padding: 4rem 1.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        
-        .sourcehat-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: white;
-        }
-        
-        .verification-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .verification-link {
-            color: #3b82f6;
-            font-weight: 600;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            position: relative;
-            padding-bottom: 0.25rem;
-        }
-        
-        .verification-link:hover {
-            color: #93c5fd;
-        }
-        
-        .verification-link:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        
-        .verification-link:hover:after {
-            width: 100%;
-        }
-        
-        .divider {
-            height: 1px;
-            background: #1e293b;
-            margin: 2rem auto;
-            max-width: 400px;
-        }
-        
-        .project-name {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            background: linear-gradient(to right, #1e3a8a, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .project-description {
-            max-width: 600px;
-            margin: 0 auto 2rem;
-            color: #cbd5e1;
-            line-height: 1.6;
-        }
-        
-        .footer-copyright {
-            color: #64748b;
-            font-size: 0.875rem;
-        }
-        
-        /* Bold style for the links */
-        .verification-link strong {
-            font-weight: 700;
-        }
+    .audit-section {
+  border: 1px solid #3b82f6;
+  border-radius: 10px;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+  text-align: center;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.audit-links {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.audit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.audit-badge {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.audit-button {
+  background-color: #2563eb;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.audit-button:hover {
+  background-color: #1e40af;
+}
+
+.footer-branding {
+  border-top: 1px solid #3b82f6;
+  padding-top: 2rem;
+}
+
+.nebula-logo {
+  width: 220px;
+  max-width: 90%;
+  margin-bottom: 1rem;
+}
+
+.footer-description {
+  color: #94a3b8;
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.social-icons img {
+  width: 22px;
+  height: 22px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: scale(1.1);
+}
   </style>
 </head>
 <body>
@@ -1129,24 +1113,37 @@ margin: 0;
     <section class="section">
         <h2>Infrastructure Partners</h2>
      
-    </section>
-<section class="verification-section">
-        <h1 class="sourcehat-title">SourceHat</h1>
-        
-        <div class="verification-links">
-            <a href="https://assuredefi.com/profile-link" class="verification-link" target="_blank"><strong>Assure DeFi profile</strong></a>
-            <a href="https://sourcehat.com/audit-link" class="verification-link" target="_blank"><strong>Audit</strong></a>
-        </div>
-        
-        <div class="divider"></div>
-        
-        <h2 class="project-name">Nebula AI</h2>
-        <p class="project-description">A decentralised supercomputer designed to meet the demand for next gen AI</p>
-        
-        <p class="footer-copyright">© 2025 Nebula. All rights reserved</p>
+<section class="audit-section">
+  <div class="audit-links">
+    <div class="audit-item">
+      <img src="images/badge1.png" alt="Assure Badge" class="audit-badge">
+      <a href="https://assuredefi.com/profile-link" class="audit-button" target="_blank">Assure DeFi profile</a>
+    </div>
+    <div class="audit-item">
+      <img src="images/badge2.png" alt="SourceHat Logo" class="audit-badge">
+      <a href="https://sourcehat.com/audit-link" class="audit-button" target="_blank">Audit</a>
+    </div>
+  </div>
+
+  <div class="footer-branding">
+    <img src="assets/nebulawidelogo.png" alt="Nebula Logo" class="nebula-logo">
+    <p class="footer-description">A decentralised supercomputer designed to meet the demand for next gen AI</p>
+    <div class="social-icons">
+      <a href="https://twitter.com/yourproject" target="_blank"><img src="images/twitter.svg" alt="Twitter"></a>
+      <a href="https://t.me/yourproject" target="_blank"><img src="images/telegram.svg" alt="Telegram"></a>
+      <a href="#"><img src="images/dextools.svg" alt="Dextools"></a>
+      <a href="#"><img src="images/ethscan.svg" alt="Etherscan"></a>
+      <a href="#"><img src="images/gitbook.svg" alt="Gitbook"></a>
+    </div>
+  </div>
+</section>
     </div>
   </div>
 </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Nebula AI. All rights reserved.</p>
+    </footer>
 
     <script>
     // Tutup nav saat link diklik
