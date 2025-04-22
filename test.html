@@ -168,10 +168,65 @@
       color: #94a3b8;
       border-top: 1px solid #1e293b;  
     }
+    .nav-toggle {
+  position: absolute;
+  right: 2rem;
+  top: 1.5rem;
+  width: 30px;
+  height: 25px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.nav-toggle span {
+  display: block;
+  height: 3px;
+  background: white;
+  border-radius: 3px;
+}
+
+.nav-menu {
+  position: absolute;
+  top: 70px;
+  right: 2rem;
+  background: #111;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  z-index: 999;
+}
+
+.nav-menu a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.nav-open .nav-menu {
+  display: flex;
+}
   </style>
 </head>
 <body>
   <header>
+  	<div class="nav-toggle" onclick="document.body.classList.toggle('nav-open')">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+<div class="nav-menu">
+  <a href="#marketplace">Marketplace</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#working">How it Works</a>
+  <a href="#roadmap">Roadmap</a>
+  <a href="#faq">FAQ</a>
+  <a href="#document">Document</a>
+</div>
     <img src="assets/nebulawidelogo.png" alt="Nebula Logo">
   </header>  <section class="section">
     <h1 class="hero-title">A decentralised supercomputer designed to meet the demand for next gen AI</h1>
@@ -187,27 +242,106 @@
       <a href="https://app.nebula-ai.com/buy" class="btn btn-primary">Buy $NAI</a>
       <a href="https://app.nebula-ai.com/rent" class="btn btn-outline">Rent GPU</a>
     </div>
-  </section>  <section id="pricing" class="section">
+        </div>
+      </section>
+  <!-- Pricing Section -->
+  <section id="pricing" class="section">
     <div class="text-center">
-      <div class="pricing-label">Pricing</div>
-      <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
-        Access our GPUs at affordable pricing
-      </p>
+   <div class="text-center">
+  <div class="pricing-label">Pricing</div>
+  <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
+    Access our GPUs at affordable pricing
+  </p>
+</div>
     </div>
+    
     <div class="pricing-grid">
-      <!-- Repeat for each pricing card with video -->
+      <div class="pricing-card">
+        <video autoplay loop muted playsinline class="pricing-video">
+          <source src="images/setup.mov" type="video/mp4">
+          <source src="images/setup.webm" type="video/webm">
+        </video>
+        <h3>Setup your node</h3>
+        <p>Connect your GPU node to our decentralized network and start earning.</p>
+      </div>
+      
+      <div class="pricing-card">
+        <video autoplay loop muted playsinline class="pricing-video">
+          <source src="images/Connect to our servers.mov" type="video/mp4">
+          <source src="images/Connect to our servers.webm" type="video/webm">
+        </video>
+        <h3>Connect to our Servers</h3>
+        <p>Link your node to our high-performance P2P marketplace and access limitless computing power.</p>
+      </div>
+      
+      <div class="pricing-card">
+        <video autoplay loop muted playsinline class="pricing-video">
+          <source src="images/payouts.mov" type="video/mp4">
+          <source src="images/Instant payouts.webm" type="video/webm">
+        </video>
+        <h3>Instant Payouts</h3>
+        <p>Receive instant rewards in ETH or NAI as your node processes AI workloads.</p>
+      </div>
     </div>
-  </section>  <section class="section">
-    <div class="text-center">
-      <div class="pricing-label">Working</div>
-      <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">How It Works</p>
+  </section>
+  
+  </section>
+  
+  <section class="section">
+       <div class="text-center">
+  <div class="pricing-label">Working</div>
+  <p style="color: #cbd5e1; margin-top: 0.75rem; font-size: 1.25rem; font-weight: 500;">
+    How It Works
+  </p>
+    <div class="card">
+      <img src="images/card1.png" alt="Earn with NAI">
+      <div class="card-content">
+        <h3>Earn with $NAI</h3>
+        <p>Pay for units with $ETH or $NAI, receive $NAI for your lending</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/card2.png" alt="Rent and Lend">
+      <div class="card-content">
+        <h3>Rent and lend</h3>
+        <p>Join our Nebula marketplace to earn from your lent GPU rentals, stake your $NAI to earn from fees and pooled generate revenue.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/card3.png" alt="Processing and verification">
+      <div class="card-content">
+        <h3>Processing and verification</h3>
+        <p>Clients submit their computational tasks to Nebula, where they are instantly distributed across our secure network of high-performance AI nodes.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/card4.png" alt="Encrypted delivery">
+      <div class="card-content">
+        <h3>Encrypted delivery</h3>
+        <p>Verified results are encrypted and returned to the clients promptly.</p>
+      </div>
+    </div>
+    <div class="card">
+      <img src="images/card5.png" alt="Task submission">
+      <div class="card-content">
+        <h3>Task submission and distribution</h3>
+        <p>The tasks are processed in parallel, harnessing the power of the L1 & L2 networks for secure, efficient, and verifiable computation.</p>
+      </div>
     </div>
     <!-- Repeat for each card with image -->
-  </section>  <section class="section">
+  </section> 
+ <section class="section">
     <h2>Infrastructure Partners</h2>
     <p style="text-align:center;">Partner logos and more detail coming soon...</p>
   </section>  <footer>
     <p>&copy; 2025 Nebula AI. All rights reserved.</p>
   </footer>
+  <script>
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      document.body.classList.remove('nav-open');
+    });
+  });
+</script>
 </body>
 </html>
