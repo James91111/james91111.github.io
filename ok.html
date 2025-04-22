@@ -410,14 +410,18 @@
         }
         
         .phase-card {
-            min-width: 300px;
-            scroll-snap-align: start;
-            background: #0f172a;
-            border: 1px solid #1e293b;
-            border-radius: 1rem;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
+    min-width: 90vw; /* Biar hampir sepanjang layar di mobile */
+    max-width: 800px; /* Biar gak terlalu lebar di desktop */
+    margin: 0 auto; /* Tengahin */
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.05), rgba(30, 58, 138, 0.2));
+    border: 1px solid rgba(59, 130, 246, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+    transition: all 0.3s ease;
+}
         
         .phase-card:hover {
             border-color: #3b82f6;
@@ -490,6 +494,15 @@
             .phase-card {
                 min-width: 400px;
             }
+            .roadmap-slider {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    -webkit-overflow-scrolling: touch;
+    justify-content: center;
+}
 }
     }
   </style>
