@@ -353,6 +353,143 @@
     100% {
         transform: translateX(-50%);
     }
+    
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        body {
+            background-color: #000;
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .roadmap-container {
+            padding: 4rem 1.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .roadmap-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .roadmap-title {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(to right, #1e3a8a, #3b82f6, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .roadmap-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 2rem;
+            padding-bottom: 2rem;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .roadmap-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .roadmap-slider::-webkit-scrollbar-track {
+            background: #0f172a;
+            border-radius: 10px;
+        }
+        
+        .roadmap-slider::-webkit-scrollbar-thumb {
+            background: #3b82f6;
+            border-radius: 10px;
+        }
+        
+        .phase-card {
+            min-width: 300px;
+            scroll-snap-align: start;
+            background: #0f172a;
+            border: 1px solid #1e293b;
+            border-radius: 1rem;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .phase-card:hover {
+            border-color: #3b82f6;
+            transform: translateY(-5px);
+        }
+        
+        .phase-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: #3b82f6;
+        }
+        
+        .phase-items {
+            list-style: none;
+        }
+        
+        .phase-item {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .phase-item:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #3b82f6;
+        }
+        
+        .completed {
+            color: #10b981;
+        }
+        
+        .completed:before {
+            background: #10b981;
+        }
+        
+        .pending {
+            color: #cbd5e1;
+        }
+        
+        .navigation-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-top: 2rem;
+        }
+        
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #1e293b;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dot.active {
+            background: #3b82f6;
+            transform: scale(1.2);
+        }
+        
+        @media (min-width: 768px) {
+            .phase-card {
+                min-width: 400px;
+            }
 }
     }
   </style>
@@ -497,7 +634,100 @@
       <p>The tasks are processed in parallel, harnessing the power of the L1 & L2 networks for secure, efficient, and verifiable computation.</p>
     </div>
   </div>
-  </div>
+  </div><section class="roadmap-container">
+        <div class="roadmap-header">
+            <h1 class="roadmap-title">Nebula AI Roadmap</h1>
+        </div>
+        
+        <div class="roadmap-slider" id="roadmapSlider">
+            <!-- Phase 1 -->
+            <div class="phase-card">
+                <h2 class="phase-title">Phase 1: Foundation</h2>
+                <ul class="phase-items">
+                    <li class="phase-item completed">Core team assembled</li>
+                    <li class="phase-item completed">Whitepaper released</li>
+                    <li class="phase-item completed">Initial token offering</li>
+                    <li class="phase-item completed">Basic GPU marketplace</li>
+                    <li class="phase-item completed">First partnerships</li>
+                </ul>
+            </div>
+            
+            <!-- Phase 2 -->
+            <div class="phase-card">
+                <h2 class="phase-title">Phase 2: Network Growth</h2>
+                <ul class="phase-items">
+                    <li class="phase-item completed">Mainnet launch</li>
+                    <li class="phase-item completed">1000+ GPU nodes</li>
+                    <li class="phase-item completed">First AI models deployed</li>
+                    <li class="phase-item completed">Token listing on exchanges</li>
+                    <li class="phase-item completed">Community governance</li>
+                </ul>
+            </div>
+            
+            <!-- Phase 3 (from your image) -->
+            <div class="phase-card">
+                <h2 class="phase-title">Phase 3: Ecosystem Utility & Token Flow</h2>
+                <ul class="phase-items">
+                    <li class="phase-item pending">SuperApp AI execution layer launched (backend routed through Nebula GPUs)</li>
+                    <li class="phase-item completed">Referral and incentive system live across hosts, renters, and partners</li>
+                    <li class="phase-item completed">Fallback compute utility (mining, ZK proofs, rendering, node ops) activated</li>
+                    <li class="phase-item completed">Onchain revenue from ETH routed into buy-and-convert mechanisms for $NAI</li>
+                    <li class="phase-item completed">Strategy Hub live — token-gated staking dashboard for GPU monetization</li>
+                </ul>
+            </div>
+            
+            <!-- Phase 4 -->
+            <div class="phase-card">
+                <h2 class="phase-title">Phase 4: AI Expansion</h2>
+                <ul class="phase-items">
+                    <li class="phase-item pending">Proprietary AI models development</li>
+                    <li class="phase-item pending">Decentralized AI training</li>
+                    <li class="phase-item pending">Federated learning integration</li>
+                    <li class="phase-item pending">AI marketplace launch</li>
+                    <li class="phase-item pending">10,000+ GPU nodes</li>
+                </ul>
+            </div>
+            
+            <!-- Phase 5 -->
+            <div class="phase-card">
+                <h2 class="phase-title">Phase 5: Enterprise Adoption</h2>
+                <ul class="phase-items">
+                    <li class="phase-item pending">First enterprise clients</li>
+                    <li class="phase-item pending">Custom compute solutions</li>
+                    <li class="phase-item pending">Regulatory compliance framework</li>
+                    <li class="phase-item pending">Cross-chain integration</li>
+                    <li class="phase-item pending">50,000+ GPU nodes</li>
+                </ul>
+            </div>
+            
+            <!-- Phase 6 -->
+            <div class="phase-card">
+                <h2 class="phase-title">Phase 6: Decentralized AI</h2>
+                <ul class="phase-items">
+                    <li class="phase-item pending">Full AI autonomy</li>
+                    <li class="phase-item pending">Self-improving models</li>
+                    <li class="phase-item pending">AI governance system</li>
+                    <li class="phase-item pending">100,000+ GPU nodes</li>
+                    <li class="phase-item pending">Global compute coverage</li>
+                </ul>
+            </div>
+            
+            <!-- Phase 7 -->
+            <div class="phase-card">
+                <h2 class="phase-title">Phase 7: Singularity</h2>
+                <ul class="phase-items">
+                    <li class="phase-item pending">AI-human collaboration</li>
+                    <li class="phase-item pending">Full decentralized AI stack</li>
+                    <li class="phase-item pending">1M+ GPU nodes</li>
+                    <li class="phase-item pending">New economic models</li>
+                    <li class="phase-item pending">Self-sustaining ecosystem</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="navigation-dots" id="dotsContainer">
+            <!-- Dots will be added by JavaScript -->
+        </div>
   </div>
 </section><!-- Infrastructure Partners --><section class="section">
   <h2>Infrastructure Partners</h2>
@@ -510,5 +740,37 @@
       document.body.classList.remove('nav-open');
     });
   });
+        // Create navigation dots
+        const slider = document.getElementById('roadmapSlider');
+        const dotsContainer = document.getElementById('dotsContainer');
+        const cards = document.querySelectorAll('.phase-card');
+        
+        cards.forEach((_, index) => {
+            const dot = document.createElement('div');
+            dot.classList.add('dot');
+            if(index === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                slider.scrollTo({
+                    left: cards[index].offsetLeft,
+                    behavior: 'smooth'
+                });
+            });
+            dotsContainer.appendChild(dot);
+        });
+        
+        // Update active dot on scroll
+        slider.addEventListener('scroll', () => {
+            const scrollPosition = slider.scrollLeft + slider.offsetWidth / 2;
+            
+            document.querySelectorAll('.dot').forEach((dot, index) => {
+                const card = cards[index];
+                if(card.offsetLeft <= scrollPosition && 
+                   card.offsetLeft + card.offsetWidth > scrollPosition) {
+                    document.querySelector('.dot.active').classList.remove('active');
+                    dot.classList.add('active');
+                }
+            });
+        });
+   
 </script></body>
 </html>
